@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Inertia\Inertia;
 
 class CategoryController extends Controller
 {
@@ -13,9 +16,18 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->wantsJson()) {
+            return response()->json([
+                'message' => 'success',
+                'data' => Category::all(),
+            ], Response::HTTP_OK);
+        }
+
+        return Inertia::render('Categories/Index', [
+            'categories' => Category::paginate()
+        ]);
     }
 
     /**

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Inertia\Inertia;
 
 class ProductController extends Controller
 {
@@ -13,9 +16,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->wantsJson()) {
+            return response()->json([
+                'message' => 'success',
+                'data' => Product::all(),
+            ], Response::HTTP_OK);
+        }
+
+        return Inertia::render('Products/Index', [
+            'products' => Product::paginate()
+        ]);
     }
 
     /**

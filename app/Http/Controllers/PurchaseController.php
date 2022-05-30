@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePurchaseRequest;
 use App\Http\Requests\UpdatePurchaseRequest;
 use App\Models\Purchase;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Inertia\Inertia;
 
 class PurchaseController extends Controller
 {
@@ -13,9 +16,18 @@ class PurchaseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->wantsJson()) {
+            return response()->json([
+                'message' => 'success',
+                'data' => Purchase::all(),
+            ], Response::HTTP_OK);
+        }
+
+        return Inertia::render('Purchases/Index', [
+            'orders' => Purchase::paginate()
+        ]);
     }
 
     /**
