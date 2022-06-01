@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Inertia\Inertia;
 
 class CategoryController extends Controller
 {
@@ -13,9 +16,18 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->wantsJson()) {
+            return response()->json([
+                'message' => 'success',
+                'data' => Category::all(),
+            ], Response::HTTP_OK);
+        }
+
+        return Inertia::render('Categories/Index', [
+            'categories' => Category::paginate(10)
+        ]);
     }
 
     /**
@@ -25,7 +37,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Categories/Create');
     }
 
     /**
@@ -36,7 +48,14 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        Category::create([
+            'name' => $request->name
+        ]);
+
+        // return redirect()->back()->with('success', 'Berhasil Tambah Kategori.');
+        return Inertia::render('Categories/Index', [
+            'categories' => Category::paginate(5)
+        ]);
     }
 
     /**
@@ -58,7 +77,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return Inertia::render('Categories/Edit', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -70,7 +91,8 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        Category::find($category->id)->update($request->all());
+        return redirect()->back()->with('success', 'Berhasil Tambah Kategori.');
     }
 
     /**
@@ -81,6 +103,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        dd($category);
+        Category::destroy($category->id);
+        return Inertia::render('Categories/Index');
     }
 }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Order;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Inertia\Inertia;
 
 class OrderController extends Controller
 {
@@ -13,9 +16,18 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->wantsJson()) {
+            return response()->json([
+                'message' => 'success',
+                'data' => Order::all(),
+            ], Response::HTTP_OK);
+        }
+
+        return Inertia::render('Orders/Index', [
+            'orders' => Order::paginate()
+        ]);
     }
 
     /**
@@ -25,7 +37,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Orders/Create');
     }
 
     /**
