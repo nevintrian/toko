@@ -25,7 +25,7 @@
         </nav>
         <!-- END TOP NAV -->
 
-        <div class="relative pt-12 pb-32 bg-blue-400 md:pt-32">
+        <div class="relative pt-12 pb-16 bg-blue-400 md:pt-32">
             <div class="px-4 mx-auto w-full md:px-10">
                 <div class="flex flex-wrap"></div>
             </div>

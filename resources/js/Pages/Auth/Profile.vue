@@ -4,15 +4,19 @@
     <BreezeAuthenticatedLayout>
         <div class="px-4 w-full">
             <div
-                class="flex relative flex-col mb-6 min-w-0 break-words bg-white rounded shadow-lg bg-blueGray-100 xl:mb-0">
+                class="flex relative flex-col mb-6 min-w-0 break-words bg-white rounded shadow-lg bg-white xl:mb-0">
 
-                <div class="px-6 py-6 mb-0 bg-white rounded-t">
-                    <div class="flex justify-between text-center">
-                        <h6 class="text-xl font-bold text-blueGray-700">
-                            My profile
-                        </h6>
+
+                <div class="rounded-t bg-white mb-0 px-4 py-3 border-0">
+                    <div class="flex flex-wrap items-center">
+                        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                            <h6 class="text-xl font-bold text-blueGray-700 py-3">
+                                Data Penjualan
+                            </h6>
+                        </div>
                     </div>
                 </div>
+
 
                 <div class="flex-auto p-4">
 
@@ -63,6 +67,7 @@
                                         type="password"
                                         class="block mt-1 w-full"
                                         v-model="form.password"
+                                        required
                                     />
                                 </div>
                             </div>
@@ -75,20 +80,20 @@
                                         type="password"
                                         class="block mt-1 w-full"
                                         v-model="form.password_confirmation"
+                                        required
                                     />
                                 </div>
                             </div>
-                        </div>
-
-                        <divider class="mt-6"/>
-
-                        <div class="mt-6">
-                            <BreezeButton
-                                :class="{ 'opacity-25': form.processing }"
-                                :disabled="form.processing"
-                            >
-                                Submit
-                            </BreezeButton>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <BreezeButton
+                                        :class="{ 'opacity-25': form.processing }"
+                                        :disabled="form.processing"
+                                    >
+                                        Submit
+                                    </BreezeButton>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>

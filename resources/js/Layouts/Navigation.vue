@@ -6,7 +6,7 @@
                 class="px-3 py-1 text-xl leading-none text-black bg-transparent rounded border border-transparent border-solid opacity-50 cursor-pointer md:hidden">
                 <i class="fas fa-bars"></i>
             </button>
-            <Link :href="route('dashboard')"
+            <Link :href="route('home')"
                 class="inline-block p-4 px-0 mr-0 text-sm font-bold text-left uppercase whitespace-nowrap md:block md:pb-2 text-blueGray-600">
                 Macnifique Collection
             </Link>
@@ -47,7 +47,7 @@
                 </div>
                 <!-- Heading -->
                 <nav-heading>
-                    Menu
+                    Dashboard
                 </nav-heading>
 
                 <ul class="flex flex-col list-none md:flex-col md:min-w-full">
@@ -59,9 +59,13 @@
                             Dashboard
                         </nav-link>
                     </li>
-
+                </ul>
+                <nav-heading class="mt-4">
+                    Data
+                </nav-heading>
+                <ul class="flex flex-col list-none md:flex-col md:min-w-full">
                     <li class="items-center">
-                        <nav-link :href="route('users.index')" :active="route().current('users.index')">
+                        <nav-link :href="route('users.index')" :active="route().current('users.index') || route().current('users.create') || route().current('users.edit')">
                             <template #icon>
                                 <i class="mr-2 text-sm opacity-75 fas fa-users"></i>
                             </template>
@@ -69,7 +73,7 @@
                         </nav-link>
                     </li>
                     <li class="items-center">
-                        <nav-link :href="route('category.index')" :active="route().current('category.index')">
+                        <nav-link :href="route('category.index')" :active="route().current('category.index') || route().current('category.create') || route().current('category.edit')">
                             <template #icon>
                                 <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
                             </template>
@@ -77,15 +81,20 @@
                         </nav-link>
                     </li>
                     <li class="items-center">
-                        <nav-link :href="route('product.index')" :active="route().current('product.index')">
+                        <nav-link :href="route('product.index')" :active="route().current('product.index') || route().current('product.create') || route().current('product.edit')">
                             <template #icon>
                                 <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
                             </template>
                             Produk
                         </nav-link>
                     </li>
+                </ul>
+                <nav-heading class="mt-4">
+                    Transaksi
+                </nav-heading>
+                <ul class="flex flex-col list-none md:flex-col md:min-w-full">
                     <li class="items-center">
-                        <nav-link :href="route('purchase.index')" :active="route().current('purchase.index')">
+                        <nav-link :href="route('purchase.index')" :active="route().current('purchase.index') || route().current('purchase.create') || route().current('purchase.edit')">
                             <template #icon>
                                 <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
                             </template>
@@ -93,37 +102,35 @@
                         </nav-link>
                     </li>
                     <li class="items-center">
-                        <nav-link :href="route('order.index')" :active="route().current('order.index')">
+                        <nav-link :href="route('order.index')" :active="route().current('order.index') || route().current('order.create') || route().current('order.edit')">
                             <template #icon>
                                 <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
                             </template>
                             Penjualan
                         </nav-link>
                     </li>
-                    <!-- <li class="items-center">
-                        <nav-link :href="route('about')" :active="route().current('about')">
+                </ul>
+                <nav-heading class="mt-4">
+                    Profil
+                </nav-heading>
+                <ul class="flex flex-col list-none md:flex-col md:min-w-full">
+                    <li class="items-center">
+                        <nav-link :href="route('profile.update')" :active="route().current('profile.update')">
                             <template #icon>
                                 <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
                             </template>
-                            About us
+                            Profil
                         </nav-link>
-                    </li> -->
+                    </li>
+                    <li class="items-center">
+                        <nav-link :href="route('order.index')" :active="route().current('order.index') || route().current('order.create') || route().current('order.edit')">
+                            <template #icon>
+                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                            </template>
+                            Logout
+                        </nav-link>
+                    </li>
                 </ul>
-
-                <!-- <divider class="my-4"/> -->
-
-                <!-- <nav-heading>
-                    Two-level menu
-                </nav-heading>
-
-                <ul class="flex flex-col list-none md:flex-col md:min-w-full">
-                    <nav-link href="#">
-                        <template #icon>
-                            <i class="mr-2 text-sm opacity-75 far fa-circle"></i>
-                        </template>
-                        Child menu
-                    </nav-link>
-                </ul> -->
             </div>
         </div>
     </nav>
