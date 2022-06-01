@@ -70,7 +70,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return Inertia::render('Products/Edit', [
+            'product' => $product
+        ]);
     }
 
     /**
@@ -82,7 +84,8 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        Product::find($product->id)->update($request->all());
+        return redirect()->back()->with('success', 'Berhasil Tambah Produk.');
     }
 
     /**
@@ -93,6 +96,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        Product::destroy($product->id);
+        return Inertia::render('Products/Index');
     }
 }

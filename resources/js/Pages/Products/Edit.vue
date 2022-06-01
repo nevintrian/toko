@@ -5,11 +5,10 @@
         <div class="px-4 w-full">
             <div
                 class="flex relative flex-col mb-6 min-w-0 break-words bg-white rounded shadow-lg bg-white xl:mb-0">
-
                 <div class="px-6 py-6 mb-0 bg-white rounded-t">
                     <div class="flex justify-between text-center">
                         <h6 class="text-xl font-bold text-blueGray-700">
-                            Ubah Kategori
+                            Ubah Produk
                         </h6>
                     </div>
                 </div>
@@ -166,9 +165,23 @@ export default {
         };
     },
 
+    data() {
+        return {
+            form: useForm({
+                code: this.$page.props.product['code'],
+                name: this.$page.props.product['name'],
+                category_id: this.$page.props.product['category_id'],
+                brand: this.$page.props.product['brand'],
+                stock: this.$page.props.product['stock'],
+                price: this.$page.props.product['price'],
+                sold: this.$page.props.product['sold'],
+            }),
+        };
+    },
+
     methods: {
         submit() {
-            this.form.post(this.route('product.store'), {
+            this.form.put(this.route('product.update', this.$page.props.product['id']), {
 
             })
         },

@@ -9,7 +9,7 @@
                 <div class="px-6 py-6 mb-0 bg-white rounded-t">
                     <div class="flex justify-between text-center">
                         <h6 class="text-xl font-bold text-blueGray-700">
-                            Tambah Kategori
+                            Tambah Produk
                         </h6>
                     </div>
                 </div>

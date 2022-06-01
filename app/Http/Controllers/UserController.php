@@ -34,4 +34,10 @@ class UserController extends Controller
             'users' => User::paginate()
         ]);
     }
+
+    public function destroy(User $user)
+    {
+        User::destroy($user->id);
+        return Inertia::render('Users/Index');
+    }
 }

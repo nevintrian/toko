@@ -82,8 +82,10 @@
                                 {{ product.sold }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                <Link :href="route('category.index')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3">Ubah</Link>
-                                <Link :href="route('category.index')" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3">Hapus</Link>
+                                <Link :href="route('product.edit', product.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3">Ubah</Link>
+                                <form @submit.prevent="submit" class="inline">
+                                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3" onclick="return confirm('Apa anda yakin?')">Hapus</button>
+                                </form>
                             </td>
 
                         </tr>
@@ -114,6 +116,12 @@ export default {
 
     props: {
         products: Object,
-    }
+    },
+
+    methods: {
+        submit() {
+            this.form.delete(this.route('product.destroy'))
+        },
+    },
 }
 </script>

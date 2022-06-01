@@ -52,12 +52,9 @@
                                 {{ user.email }}
                             </td>
                              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3">
-                                    Ubah
-                                </button>
-                                 <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                    Hapus
-                                </button>
+                                <form @submit.prevent="submit" class="inline">
+                                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3" onclick="return confirm('Apa anda yakin?')">Hapus</button>
+                                </form>
                             </td>
 
                         </tr>
