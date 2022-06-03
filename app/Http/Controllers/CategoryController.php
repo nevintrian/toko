@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class CategoryController extends Controller
@@ -48,14 +49,8 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        Category::create([
-            'name' => $request->name
-        ]);
-
-        // return redirect()->back()->with('success', 'Berhasil Tambah Kategori.');
-        return Inertia::render('Categories/Index', [
-            'categories' => Category::paginate(5)
-        ]);
+        Category::create($request->all());
+        return Redirect::route('category.index')->with('success', 'Berhasil Tambah Kategori.');
     }
 
     /**
@@ -92,7 +87,7 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         Category::find($category->id)->update($request->all());
-        return redirect()->back()->with('success', 'Berhasil Tambah Kategori.');
+        return Redirect::route('category.index')->with('success', 'Berhasil Ubah Kategori.');
     }
 
     /**
@@ -103,8 +98,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        dd($category);
         Category::destroy($category->id);
-        return Inertia::render('Categories/Index');
+        return Redirect::route('category.index')->with('success', 'Berhasil Hapus Kategori.');
     }
 }

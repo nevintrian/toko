@@ -34,6 +34,7 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="code" value="Kode"/>
                                     <BreezeInput
+                                        placeholder="Masukkan kode transaksi"
                                         id="code"
                                         type="text"
                                         v-model="form.code"
@@ -45,6 +46,7 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="supplier_name" value="Nama Pelanggan"/>
                                     <BreezeInput
+                                        placeholder="Masukkan nama pelanggan"
                                         id="customer_name"
                                         type="text"
                                         v-model="form.supplier_name"
@@ -56,6 +58,7 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="total_harga" value="Total Harga"/>
                                     <BreezeInput
+                                        placeholder="Masukkan total harga"
                                         id="total_harga"
                                         type="number"
                                         v-model="form.total_harga"
@@ -71,11 +74,6 @@
                                     :class="{ 'opacity-25': form.processing }"
                                     :disabled="form.processing">
                                     Simpan
-                                </BreezeButton>
-                                 <BreezeButton
-                                    :class="{ 'opacity-25': form.processing }"
-                                    :disabled="form.processing">
-                                    Kembali
                                 </BreezeButton>
                             </div>
 

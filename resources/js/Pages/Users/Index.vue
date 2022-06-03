@@ -8,18 +8,20 @@
                             <h6 class="text-xl font-bold text-blueGray-700 py-3">
                                 Data User
                             </h6>
-                            <BreezeButtonLink :href="route('users.create')">Tambah</BreezeButtonLink>
+                            <BreezeButtonLink :href="route('user.create')">Tambah</BreezeButtonLink>
                         </div>
                     </div>
                 </div>
 
 
-                <!-- <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-lightBlue-500">
-                    <span class="inline-block align-middle">
-                        Sample table page
+                <div @click="hide" id="successMessage" v-show="$page.props.flash.success" class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-emerald-500">
+                    <span class="text-xl inline-block mr-5 align-middle">
+                        <i class="fas fa-bell"></i>
                     </span>
-                </div> -->
-
+                    <span class="inline-block align-middle">
+                        <b class="capitalize">Success!</b> {{ $page.props.flash.success }}
+                    </span>
+                </div>
 
 
                 <div class="block w-full overflow-x-auto">
@@ -51,12 +53,10 @@
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                 {{ user.email }}
                             </td>
-                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                <form @submit.prevent="submit" class="inline">
-                                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3" onclick="return confirm('Apa anda yakin?')">Hapus</button>
-                                </form>
+                            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                <Link :href="route('user.edit', user.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Ubah</Link>
+                                <Link onclick="return confirm('Apa anda yakin?')" :href="route('user.destroy', user.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3" method="delete" as="button">Hapus</Link>
                             </td>
-
                         </tr>
                         </tbody>
                     </table>
@@ -73,16 +73,27 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import Pagination from '@/Components/Pagination.vue'
 import BreezeButtonLink from '@/Components/ButtonLink.vue'
+import { Link } from '@inertiajs/inertia-vue3';
 
 export default {
     components: {
         BreezeAuthenticatedLayout,
         Pagination,
-        BreezeButtonLink
+        BreezeButtonLink,
+        Link
     },
 
     props: {
         users: Object,
-    }
+    },
+
+    methods: {
+        submit() {
+            this.form.delete(this.route('category.destroy'))
+        },
+        hide() {
+            document.getElementById("successMessage").style.display = "none";
+        },
+    },
 }
 </script>

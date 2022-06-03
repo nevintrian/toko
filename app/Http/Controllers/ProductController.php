@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class ProductController extends Controller
@@ -26,7 +28,7 @@ class ProductController extends Controller
         }
 
         return Inertia::render('Products/Index', [
-            'products' => Product::paginate()
+            'products' => Product::with('category')->paginate(),
         ]);
     }
 
@@ -37,7 +39,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Products/Create');
+        return Inertia::render('Products/Create', ['categories' => Category::paginate()]);
     }
 
     /**
@@ -48,7 +50,24 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'detail' => 'required',
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
+
+        $input = $request->all();
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }
+
+        Product::create($input);
+        return Redirect::route('product.index')->with('success', 'Berhasil Tambah Produk.');
     }
 
     /**
@@ -71,7 +90,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         return Inertia::render('Products/Edit', [
-            'product' => $product
+            'product' => $product,
+            'categories' => Category::paginate()
         ]);
     }
 
@@ -84,8 +104,20 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        Product::find($product->id)->update($request->all());
-        return redirect()->back()->with('success', 'Berhasil Tambah Produk.');
+
+        $input = $request->all();
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        } else {
+            unset($input['image']);
+        }
+
+        Product::find($product->id)->update($input);
+        return Redirect::route('product.index')->with('success', 'Berhasil Ubah Produk.');
     }
 
     /**
@@ -97,6 +129,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         Product::destroy($product->id);
-        return Inertia::render('Products/Index');
+        return Redirect::route('product.index')->with('success', 'Berhasil Hapus Produk.');
     }
 }

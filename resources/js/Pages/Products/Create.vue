@@ -34,6 +34,7 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="code" value="Kode"/>
                                     <BreezeInput
+                                        placeholder="Masukkan kode produk"
                                         id="code"
                                         type="text"
                                         v-model="form.code"
@@ -45,6 +46,7 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="name" value="Nama"/>
                                     <BreezeInput
+                                        placeholder="Masukkan nama produk"
                                         id="name"
                                         type="text"
                                         v-model="form.name"
@@ -55,18 +57,19 @@
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="category_id" value="Kategori"/>
-                                    <BreezeInput
-                                        id="category_id"
-                                        type="number"
-                                        v-model="form.category_id"
-                                        required
-                                    />
+                                      <select id="category_id" v-model="form.category_id" required  class="w-full border-gray-300 rounded-md shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <option value="" disabled selected hidden>Pilih Kategori</option>
+                                        <option :value="category.id"  v-for="category in categories.data" :key="category.id" >
+                                            {{category.name}}
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="brand" value="Brand"/>
                                     <BreezeInput
+                                        placeholder="Masukkan nama brand"
                                         id="brand"
                                         type="text"
                                         v-model="form.brand"
@@ -78,6 +81,7 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="stock" value="Stok"/>
                                     <BreezeInput
+                                        placeholder="Masukkan jumlah stok"
                                         id="stock"
                                         type="number"
                                         v-model="form.stock"
@@ -89,6 +93,7 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="price" value="Harga"/>
                                     <BreezeInput
+                                        placeholder="Masukkan harga produk"
                                         id="price"
                                         type="number"
                                         v-model="form.price"
@@ -100,9 +105,21 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="sold" value="Terjual"/>
                                     <BreezeInput
+                                        placeholder="Masukkan jumlah produk terjual"
                                         id="sold"
-                                        type="text"
+                                        type="number"
                                         v-model="form.sold"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <BreezeLabel for="image" value="Gambar"/>
+                                    <BreezeInput
+                                        id="image"
+                                        type="file"
+                                        v-model="form.image"
                                         required
                                     />
                                 </div>
@@ -118,11 +135,6 @@
                             </BreezeButton>
                             </div>
                         </div>
-
-
-
-
-
                     </form>
                 </div>
             </div>
@@ -161,9 +173,13 @@ export default {
                 brand : '',
                 stock : '',
                 price : '',
-                sold : ''
+                sold : '',
+                image : ''
             }),
         };
+    },
+    props: {
+        categories: Object,
     },
 
     methods: {

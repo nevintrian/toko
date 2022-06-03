@@ -47,7 +47,7 @@
                 </div>
                 <!-- Heading -->
                 <nav-heading>
-                    Admin Layout Pages
+                    Dashboard
                 </nav-heading>
 
                 <ul class="flex flex-col list-none md:flex-col md:min-w-full">
@@ -59,24 +59,77 @@
                             Dashboard
                         </nav-link>
                     </li>
-
+                </ul>
+                <nav-heading class="mt-4">
+                    Data
+                </nav-heading>
+                <ul class="flex flex-col list-none md:flex-col md:min-w-full">
                     <li class="items-center">
-                        <nav-link :href="route('users.index')" :active="route().current('users.index')">
+                        <nav-link :href="route('user.index')" :active="route().current('user.index') || route().current('user.create') || route().current('user.edit')">
                             <template #icon>
                                 <i class="mr-2 text-sm opacity-75 fas fa-users"></i>
                             </template>
                             User
                         </nav-link>
                     </li>
-
-                    <!-- <li class="items-center">
-                        <nav-link :href="route('about')" :active="route().current('about')">
+                    <li class="items-center">
+                        <nav-link :href="route('category.index')" :active="route().current('category.index') || route().current('category.create') || route().current('category.edit')">
                             <template #icon>
                                 <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
                             </template>
-                            About us
+                            Kategori
                         </nav-link>
-                    </li> -->
+                    </li>
+                    <li class="items-center">
+                        <nav-link :href="route('product.index')" :active="route().current('product.index') || route().current('product.create') || route().current('product.edit')">
+                            <template #icon>
+                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                            </template>
+                            Produk
+                        </nav-link>
+                    </li>
+                </ul>
+                <nav-heading class="mt-4">
+                    Transaksi
+                </nav-heading>
+                <ul class="flex flex-col list-none md:flex-col md:min-w-full">
+                    <li class="items-center">
+                        <nav-link :href="route('purchase.index')" :active="route().current('purchase.index') || route().current('purchase.create') || route().current('purchase.edit')">
+                            <template #icon>
+                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                            </template>
+                            Pembelian
+                        </nav-link>
+                    </li>
+                    <li class="items-center">
+                        <nav-link :href="route('order.index')" :active="route().current('order.index') || route().current('order.create') || route().current('order.edit')">
+                            <template #icon>
+                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                            </template>
+                            Penjualan
+                        </nav-link>
+                    </li>
+                </ul>
+                <nav-heading class="mt-4">
+                    Profil
+                </nav-heading>
+                <ul class="flex flex-col list-none md:flex-col md:min-w-full">
+                    <li class="items-center">
+                        <nav-link :href="route('profile.update')" :active="route().current('profile.show')">
+                            <template #icon>
+                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                            </template>
+                            Profil
+                        </nav-link>
+                    </li>
+                    <li class="items-center">
+                        <nav-link  onclick="return confirm('Apa anda yakin?')" :href="route('logout')"  :active="route().current('logout')" method="post" as="button">
+                            <template #icon>
+                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                            </template>
+                            Logout
+                        </nav-link>
+                    </li>
                 </ul>
 
                 <!-- <divider class="my-4"/> -->

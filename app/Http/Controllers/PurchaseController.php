@@ -26,7 +26,7 @@ class PurchaseController extends Controller
         }
 
         return Inertia::render('Purchases/Index', [
-            'orders' => Purchase::paginate()
+            'purchases' => Purchase::paginate()
         ]);
     }
 
@@ -70,7 +70,9 @@ class PurchaseController extends Controller
      */
     public function edit(Purchase $purchase)
     {
-        //
+        return Inertia::render('Purchase/Edit', [
+            'purchase' => $purchase
+        ]);
     }
 
     /**

@@ -47,29 +47,26 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="order in orders.data" :key="order.id">
+                        <tr v-for="purchase in purchases.data" :key="purchase.id">
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                {{ order.id }}
+                                {{ purchase.id }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                {{ order.code }}
+                                {{ purchase.code }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                {{ order.created_at }}
+                                {{ purchase.created_at }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                {{ order.supplier_name }}
+                                {{ purchase.supplier_name }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                {{ order.total_price }}
+                                {{ purchase.total_price }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3">
-                                    Ubah
-                                </button>
-                                 <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                    Hapus
-                                </button>
+                                <Link class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Lihat</Link>
+                                <Link :href="route('purchase.edit', purchase.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Ubah</Link>
+                                <Link onclick="return confirm('Apa anda yakin?')" :href="route('purchase.destroy', purchase.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3" method="delete" as="button">Hapus</Link>
                             </td>
 
                         </tr>
@@ -78,7 +75,7 @@
                 </div>
             </div>
 
-            <pagination :links="orders.links"/>
+            <pagination :links="purchases.links"/>
 
         </div>
     </BreezeAuthenticatedLayout>
@@ -88,16 +85,18 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import Pagination from '@/Components/Pagination.vue'
 import BreezeButtonLink from '@/Components/ButtonLink.vue'
+import { Link } from '@inertiajs/inertia-vue3';
 
 export default {
     components: {
         BreezeAuthenticatedLayout,
         Pagination,
-        BreezeButtonLink
+        BreezeButtonLink,
+        Link
     },
 
     props: {
-        orders: Object,
+        purchases: Object,
     }
 }
 </script>

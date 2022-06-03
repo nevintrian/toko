@@ -11,7 +11,7 @@
                     <div class="flex flex-wrap items-center">
                         <div class="relative w-full px-4 max-w-full flex-grow flex-1">
                             <h6 class="text-xl font-bold text-blueGray-700 py-3">
-                                Data Penjualan
+                                Data Profil
                             </h6>
                         </div>
                     </div>
@@ -67,7 +67,6 @@
                                         type="password"
                                         class="block mt-1 w-full"
                                         v-model="form.password"
-                                        required
                                     />
                                 </div>
                             </div>
@@ -80,7 +79,6 @@
                                         type="password"
                                         class="block mt-1 w-full"
                                         v-model="form.password_confirmation"
-                                        required
                                     />
                                 </div>
                             </div>
@@ -90,7 +88,7 @@
                                         :class="{ 'opacity-25': form.processing }"
                                         :disabled="form.processing"
                                     >
-                                        Submit
+                                        Simpan
                                     </BreezeButton>
                                 </div>
                             </div>

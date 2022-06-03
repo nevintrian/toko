@@ -15,7 +15,6 @@
                 </div>
 
                 <div class="flex-auto p-4">
-
                     <div v-show="$page.props.flash.success"
                          class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-emerald-500">
                         <span class="text-xl inline-block mr-5 align-middle">
@@ -34,6 +33,7 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="name" value="Nama"/>
                                     <BreezeInput
+                                        placeholder="Masukkan nama kategori"
                                         id="name"
                                         type="text"
                                         v-model="form.name"

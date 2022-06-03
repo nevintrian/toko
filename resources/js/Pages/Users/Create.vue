@@ -26,6 +26,7 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="name" value="Nama"/>
                                     <BreezeInput
+                                        placeholder="Masukkan nama user"
                                         id="name"
                                         type="text"
                                         v-model="form.name"
@@ -38,6 +39,7 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="email" value="Email"/>
                                     <BreezeInput
+                                        placeholder="Masukkan email user"
                                         id="email"
                                         type="email"
                                         class="block mt-1 w-full"
@@ -51,6 +53,7 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="password" value="Password"/>
                                     <BreezeInput
+                                        placeholder="Masukkan password user"
                                         id="password"
                                         type="password"
                                         class="block mt-1 w-full"
@@ -63,6 +66,7 @@
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="password_confirmation" value="Konfirmasi Password"/>
                                     <BreezeInput
+                                        placeholder="Masukkan konfirmasi password"
                                         id="password_confirmation"
                                         type="password"
                                         class="block mt-1 w-full"
@@ -122,10 +126,7 @@ export default {
 
     methods: {
         submit() {
-            this.form.put(this.route('profile.update'), {
-                onSuccess: () => this.form.reset('password', 'password_confirmation'),
-                onError: () => this.form.reset('password', 'password_confirmation'),
-            })
+            this.form.post(this.route('user.store'))
         },
     },
 };

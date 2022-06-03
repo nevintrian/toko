@@ -70,7 +70,9 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        return Inertia::render('Order/Edit', [
+            'order' => $order
+        ]);
     }
 
     /**

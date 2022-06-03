@@ -37,6 +37,7 @@ Route::get('/', function () {
     ]);
 });
 
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/home/faq', [HomeFaqController::class, 'index'])->name('home.faq');
@@ -53,11 +54,24 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('About');
     })->name('about');
 
-    Route::get('users', [UserController::class, 'index'])->name('users.index');
-    Route::get('users/create', [UserController::class, 'create'])->name('users.create');
 
+   
     Route::get('profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+
+
+    Route::resource('user', UserController::class, [
+        'names' => [
+            'index' => 'user.index',
+            'show' => 'user.show',
+            'create' => 'user.create',
+            'store' => 'user.store',
+            'edit' => 'user.edit',
+            'update' => 'user.update',
+            'destroy' => 'user.destroy'
+        ]
+    ]);
+
     Route::resource('category', CategoryController::class, [
         'names' => [
             'index' => 'category.index',

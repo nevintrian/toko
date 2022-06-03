@@ -54,12 +54,12 @@
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
                                     <BreezeLabel for="category_id" value="Kategori"/>
-                                    <BreezeInput
-                                        id="category_id"
-                                        type="number"
-                                        v-model="form.category_id"
-                                        required
-                                    />
+                                      <select id="category_id" v-model="form.category_id" required  class="w-full border-gray-300 rounded-md shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <option value="" disabled selected hidden>Pilih Kategori</option>
+                                        <option :value="category.id"  v-for="category in categories.data" :key="category.id" >
+                                            {{category.name}}
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
@@ -100,7 +100,7 @@
                                     <BreezeLabel for="sold" value="Terjual"/>
                                     <BreezeInput
                                         id="sold"
-                                        type="text"
+                                        type="number"
                                         v-model="form.sold"
                                         required
                                     />
@@ -117,11 +117,6 @@
                             </BreezeButton>
                             </div>
                         </div>
-
-
-
-
-
                     </form>
                 </div>
             </div>
@@ -151,18 +146,8 @@ export default {
         BreezeDropdown
     },
 
-    data() {
-        return {
-            form: useForm({
-                code : '',
-                name : '',
-                category_id : '',
-                brand : '',
-                stock : '',
-                price : '',
-                sold : ''
-            }),
-        };
+    props: {
+        categories: Object,
     },
 
     data() {

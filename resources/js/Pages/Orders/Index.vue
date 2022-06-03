@@ -64,8 +64,9 @@
                                 {{ order.total_price }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                <Link :href="route('category.index')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3">Ubah</Link>
-                                <Link :href="route('category.index')" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3">Hapus</Link>
+                                <Link class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Lihat</Link>
+                                <Link :href="route('order.edit', order.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Ubah</Link>
+                                <Link onclick="return confirm('Apa anda yakin?')" :href="route('order.destroy', order.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3" method="delete" as="button">Hapus</Link>
                             </td>
 
                         </tr>

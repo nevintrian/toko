@@ -14,12 +14,14 @@
                 </div>
 
 
-                <!-- <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-lightBlue-500">
-                    <span class="inline-block align-middle">
-                        Sample table page
+                <div @click="hide" id="successMessage" v-show="$page.props.flash.success" class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-emerald-500">
+                    <span class="text-xl inline-block mr-5 align-middle">
+                        <i class="fas fa-bell"></i>
                     </span>
-                </div> -->
-
+                    <span class="inline-block align-middle">
+                        <b class="capitalize">Success!</b> {{ $page.props.flash.success }}
+                    </span>
+                </div>
 
 
                 <div class="block w-full overflow-x-auto">
@@ -30,7 +32,7 @@
                                 Id
                             </th>
                             <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
-                                Kode Produk
+                                Kode
                             </th>
                             <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
                                 Nama
@@ -51,6 +53,9 @@
                                 Terjual
                             </th>
                             <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
+                                Gambar
+                            </th>
+                            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
                                 Action
                             </th>
                         </tr>
@@ -67,7 +72,7 @@
                                 {{ product.name }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                {{ product.category_id }}
+                                {{ product?.category?.name }}
                             </td>
                              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                 {{ product.brand }}
@@ -82,10 +87,11 @@
                                 {{ product.sold }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                <Link :href="route('product.edit', product.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3">Ubah</Link>
-                                <form @submit.prevent="submit" class="inline">
-                                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3" onclick="return confirm('Apa anda yakin?')">Hapus</button>
-                                </form>
+                                <img src="/image/{{ product.image }}" width="100px">
+                            </td>
+                            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                <Link :href="route('product.edit', product.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Ubah</Link>
+                                <Link onclick="return confirm('Apa anda yakin?')" :href="route('product.destroy', product.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3" method="delete" as="button">Hapus</Link>
                             </td>
 
                         </tr>
@@ -121,6 +127,9 @@ export default {
     methods: {
         submit() {
             this.form.delete(this.route('product.destroy'))
+        },
+        hide() {
+            document.getElementById("successMessage").style.display = "none";
         },
     },
 }

@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -17,27 +21,46 @@ class UserController extends Controller
 
     public function create()
     {
-        return Inertia::render('Users/Create', [
-            'users' => User::paginate()
-        ]);
+        return Inertia::render('Users/Create');
     }
 
-    public function store(Request $request)
+
+    public function store(StoreUserRequest $request)
     {
         User::create([
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'name' => $request->name
         ]);
 
-        return Inertia::render('Users/Create', [
-            'users' => User::paginate()
+        return Redirect::route('user.index')->with('success', 'Berhasil Tambah User.');
+    }
+
+    public function edit(User $user)
+    {
+        return Inertia::render('Users/Edit', [
+            'user' => $user,
         ]);
     }
+
+    public function update(UpdateUserRequest $request, User $user)
+    {
+        if ($request->password) {
+            User::find($user->id)->update(['password' => Hash::make($request->password)]);
+        }
+
+        User::find($user->id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        return Redirect::route('user.index')->with('success', 'Berhasil Ubah User.');
+    }
+
 
     public function destroy(User $user)
     {
         User::destroy($user->id);
-        return Inertia::render('Users/Index');
+        return Redirect::route('user.index')->with('success', 'Berhasil Hapus User.');
     }
 }

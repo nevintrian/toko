@@ -65,7 +65,7 @@
                 </nav-heading>
                 <ul class="flex flex-col list-none md:flex-col md:min-w-full">
                     <li class="items-center">
-                        <nav-link :href="route('users.index')" :active="route().current('users.index') || route().current('users.create') || route().current('users.edit')">
+                        <nav-link :href="route('user.index')" :active="route().current('user.index') || route().current('user.create') || route().current('user.edit')">
                             <template #icon>
                                 <i class="mr-2 text-sm opacity-75 fas fa-users"></i>
                             </template>
@@ -115,7 +115,7 @@
                 </nav-heading>
                 <ul class="flex flex-col list-none md:flex-col md:min-w-full">
                     <li class="items-center">
-                        <nav-link :href="route('profile.update')" :active="route().current('profile.update')">
+                        <nav-link :href="route('profile.update')" :active="route().current('profile.show')">
                             <template #icon>
                                 <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
                             </template>
@@ -123,7 +123,7 @@
                         </nav-link>
                     </li>
                     <li class="items-center">
-                        <nav-link :href="route('order.index')" :active="route().current('order.index') || route().current('order.create') || route().current('order.edit')">
+                        <nav-link  onclick="return confirm('Apa anda yakin?')" :href="route('logout')"  :active="route().current('logout')" method="post" as="button">
                             <template #icon>
                                 <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
                             </template>

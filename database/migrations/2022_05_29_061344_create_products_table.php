@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('sold');
             $table->integer('status')->default(0);
+            $table->string('image');
             $table->timestamps();
         });
     }

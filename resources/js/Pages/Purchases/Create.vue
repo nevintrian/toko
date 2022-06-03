@@ -38,6 +38,7 @@
                                         type="text"
                                         v-model="form.code"
                                         required
+                                        placeholder="Masukkan kode transaksi"
                                     />
                                 </div>
                             </div>
@@ -49,6 +50,7 @@
                                         type="text"
                                         v-model="form.supplier_name"
                                         required
+                                        placeholder="Masukkan nama supplier"
                                     />
                                 </div>
                             </div>
@@ -60,6 +62,7 @@
                                         type="number"
                                         v-model="form.total_harga"
                                         required
+                                        placeholder="Masukkan total harga"
                                     />
                                 </div>
                             </div>
