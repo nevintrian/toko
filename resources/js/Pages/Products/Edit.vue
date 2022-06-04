@@ -106,15 +106,28 @@
                                     />
                                 </div>
                             </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <BreezeLabel for="image" value="Gambar" @change="fileImage"/>
+                                    <BreezeInput
+                                        id="image"
+                                        type="file"
+                                        v-model="form.image"
+                                        required
+                                    />
+                                </div>
+                            </div>
                         </div>
+
 
                         <div class="flex flex-wrap">
                             <div class="w-full lg:w-6/12 px-4">
-                                   <BreezeButton
-                                :class="{ 'opacity-25': form.processing }"
-                                :disabled="form.processing">
-                                Simpan
-                            </BreezeButton>
+                                <Link :href="route('product.index')" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded mr-3">Kembali</Link>
+                                <BreezeButton
+                                    :class="{ 'opacity-25': form.processing }"
+                                    :disabled="form.processing">
+                                    Simpan
+                                </BreezeButton>
                             </div>
                         </div>
                     </form>
@@ -132,7 +145,8 @@ import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head, useForm } from '@inertiajs/inertia-vue3';
 import Divider from "@/Components/Divider";
-import BreezeDropdown from '@/Components/Dropdown.vue'
+import BreezeDropdown from '@/Components/Dropdown.vue';
+import { Link } from '@inertiajs/inertia-vue3';
 
 export default {
     components: {
@@ -143,7 +157,8 @@ export default {
         BreezeInput,
         BreezeLabel,
         BreezeValidationErrors,
-        BreezeDropdown
+        BreezeDropdown,
+        Link
     },
 
     props: {

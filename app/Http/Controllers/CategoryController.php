@@ -26,8 +26,14 @@ class CategoryController extends Controller
             ], Response::HTTP_OK);
         }
 
+        if ($request->keywords) {
+            return Inertia::render('Categories/Index', [
+                'categories' => Category::where('name', 'LIKE', '%' . $request->keywords . '%')->paginate(),
+            ]);
+        }
+
         return Inertia::render('Categories/Index', [
-            'categories' => Category::paginate(10)
+            'categories' => Category::paginate(5)
         ]);
     }
 

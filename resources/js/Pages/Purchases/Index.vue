@@ -9,16 +9,29 @@
                                 Data Pembelian
                             </h6>
                            <BreezeButtonLink :href="route('purchase.create')">Tambah</BreezeButtonLink>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="keywords"
+                                    class="mr-1 mb-1 px-4 py-3 text-sm leading-4 text-gray-800 border rounded"
+                                    placeholder="Search"
+                                    v-model="keywords"
+                                    @keyup="search" >
+                            </div>
                         </div>
+                        <Link :href="route('purchase.index')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-4 rounded mr-3">Cetak Laporan</Link>
                     </div>
                 </div>
 
 
-                <!-- <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-lightBlue-500">
-                    <span class="inline-block align-middle">
-                        Sample table page
+                <div @click="hide" id="successMessage" v-show="$page.props.flash.success" class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-emerald-500">
+                    <span class="text-xl inline-block mr-5 align-middle">
+                        <i class="fas fa-bell"></i>
                     </span>
-                </div> -->
+                    <span class="inline-block align-middle">
+                        <b class="capitalize">Success!</b> {{ $page.props.flash.success }}
+                    </span>
+                </div>
 
 
 
@@ -68,15 +81,18 @@
                                 <Link :href="route('purchase.edit', purchase.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Ubah</Link>
                                 <Link onclick="return confirm('Apa anda yakin?')" :href="route('purchase.destroy', purchase.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3" method="delete" as="button">Hapus</Link>
                             </td>
-
                         </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-
-            <pagination :links="purchases.links"/>
-
+            <div class="rounded-t mb-0 px-4 py-3 border-0">
+                <div class="flex flex-wrap items-center">
+                    <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                        <pagination :links="purchases.links"/>
+                    </div>
+                </div>
+            </div>
         </div>
     </BreezeAuthenticatedLayout>
 </template>
@@ -97,6 +113,24 @@ export default {
 
     props: {
         purchases: Object,
-    }
+    },
+
+    data() {
+        return {
+            keywords: ''
+        };
+    },
+
+    methods: {
+        submit() {
+            this.form.delete(this.route('purchase.destroy'))
+        },
+        hide() {
+            document.getElementById("successMessage").style.display = "none";
+        },
+        search() {
+            this.$inertia.get("/purchase", { keywords: this.keywords }, { preserveState: true });
+        },
+    },
 }
 </script>

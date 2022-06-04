@@ -9,6 +9,15 @@
                                 Data Kategori
                             </h6>
                             <BreezeButtonLink :href="route('category.create')">Tambah</BreezeButtonLink>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="keywords"
+                                    class="mr-1 mb-1 px-4 py-3 text-sm leading-4 text-gray-800 border rounded"
+                                    placeholder="Search"
+                                    v-model="keywords"
+                                    @keyup="search" >
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,8 +63,10 @@
                         </tr>
                         </tbody>
                     </table>
-                    <div class="rounded-t mb-0 px-4 py-3 border-0">
-                        <div class="flex flex-wrap items-end">
+                </div>
+                <div class="rounded-t mb-0 px-4 py-3 border-0">
+                    <div class="flex flex-wrap items-center">
+                        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
                             <pagination :links="categories.links"/>
                         </div>
                     </div>
@@ -84,12 +95,21 @@ export default {
         categories: Object,
     },
 
+    data() {
+        return {
+            keywords: ''
+        };
+    },
+
     methods: {
         submit() {
             this.form.delete(this.route('category.destroy'))
         },
         hide() {
             document.getElementById("successMessage").style.display = "none";
+        },
+        search() {
+            this.$inertia.get("/category", { keywords: this.keywords }, { preserveState: true });
         },
     },
 }

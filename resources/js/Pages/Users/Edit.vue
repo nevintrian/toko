@@ -84,10 +84,10 @@
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
+                                    <Link :href="route('user.index')" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded mr-3">Kembali</Link>
                                     <BreezeButton
                                         :class="{ 'opacity-25': form.processing }"
-                                        :disabled="form.processing"
-                                    >
+                                        :disabled="form.processing">
                                         Simpan
                                     </BreezeButton>
                                 </div>
@@ -108,6 +108,7 @@ import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head, useForm } from '@inertiajs/inertia-vue3';
 import Divider from "@/Components/Divider";
+import { Link } from '@inertiajs/inertia-vue3';
 
 export default {
     components: {
@@ -118,6 +119,7 @@ export default {
         BreezeInput,
         BreezeLabel,
         BreezeValidationErrors,
+        Link
     },
 
     data() {

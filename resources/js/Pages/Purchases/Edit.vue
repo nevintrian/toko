@@ -6,11 +6,13 @@
             <div
                 class="flex relative flex-col mb-6 min-w-0 break-words bg-white rounded shadow-lg bg-white xl:mb-0">
 
-                <div class="px-6 py-6 mb-0 bg-white rounded-t">
-                    <div class="flex justify-between text-center">
-                        <h6 class="text-xl font-bold text-blueGray-700">
-                            Ubah Pembelian
-                        </h6>
+                <div class="rounded-t mb-0 px-4 py-3 border-0">
+                    <div class="flex flex-wrap items-center">
+                        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                            <h6 class="text-xl font-bold text-blueGray-700 py-3">
+                                Ubah Pembelian
+                            </h6>
+                        </div>
                     </div>
                 </div>
 
@@ -54,11 +56,11 @@
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
-                                    <BreezeLabel for="total_harga" value="Total Harga"/>
+                                    <BreezeLabel for="total_price" value="Total Harga"/>
                                     <BreezeInput
-                                        id="total_harga"
+                                        id="total_price"
                                         type="number"
-                                        v-model="form.total_harga"
+                                        v-model="form.total_price"
                                         required
                                     />
                                 </div>
@@ -67,11 +69,12 @@
 
                         <div class="flex flex-wrap">
                             <div class="w-full lg:w-6/12 px-4">
-                                   <BreezeButton
-                                :class="{ 'opacity-25': form.processing }"
-                                :disabled="form.processing">
-                                Simpan
-                            </BreezeButton>
+                                <Link :href="route('purchase.index')" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded mr-3">Kembali</Link>
+                                <BreezeButton
+                                    :class="{ 'opacity-25': form.processing }"
+                                    :disabled="form.processing">
+                                    Simpan
+                                </BreezeButton>
                             </div>
                         </div>
                     </form>
@@ -89,6 +92,7 @@ import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head, useForm } from '@inertiajs/inertia-vue3';
 import Divider from "@/Components/Divider";
+import { Link } from '@inertiajs/inertia-vue3';
 
 export default {
     components: {
@@ -99,21 +103,22 @@ export default {
         BreezeInput,
         BreezeLabel,
         BreezeValidationErrors,
+        Link
     },
 
     data() {
         return {
             form: useForm({
-                code : '',
-                supplier_name : '',
-                total_harga : '',
+                code : this.$page.props.purchase['code'],
+                supplier_name : this.$page.props.purchase['supplier_name'],
+                total_price : this.$page.props.purchase['total_price'],
             }),
         };
     },
 
     methods: {
         submit() {
-            this.form.post(this.route('product.store'), {
+           this.form.put(this.route('purchase.update', this.$page.props.purchase['id']), {
 
             })
         },

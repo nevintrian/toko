@@ -28,7 +28,7 @@
 
                     <BreezeValidationErrors class="mb-4"/>
 
-                    <form @submit.prevent="submit">
+                    <form @submit.prevent="submit" method="POST" enctype="multipart/form-data">
                         <div class="flex flex-wrap">
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
@@ -115,7 +115,7 @@
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
-                                    <BreezeLabel for="image" value="Gambar"/>
+                                    <BreezeLabel for="image" value="Gambar" @change="fileImage"/>
                                     <BreezeInput
                                         id="image"
                                         type="file"
@@ -128,11 +128,12 @@
 
                         <div class="flex flex-wrap">
                             <div class="w-full lg:w-6/12 px-4">
-                                   <BreezeButton
-                                :class="{ 'opacity-25': form.processing }"
-                                :disabled="form.processing">
-                                Simpan
-                            </BreezeButton>
+                                <Link :href="route('product.index')" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded mr-3">Kembali</Link>
+                                <BreezeButton
+                                    :class="{ 'opacity-25': form.processing }"
+                                    :disabled="form.processing"  @click="uploadFile">
+                                    Simpan
+                                </BreezeButton>
                             </div>
                         </div>
                     </form>
@@ -151,6 +152,7 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head, useForm } from '@inertiajs/inertia-vue3';
 import Divider from "@/Components/Divider";
 import BreezeDropdown from '@/Components/Dropdown.vue'
+import { Link } from '@inertiajs/inertia-vue3';
 
 export default {
     components: {
@@ -161,7 +163,8 @@ export default {
         BreezeInput,
         BreezeLabel,
         BreezeValidationErrors,
-        BreezeDropdown
+        BreezeDropdown,
+        Link
     },
 
     data() {
@@ -189,5 +192,30 @@ export default {
             })
         },
     },
+
+    fileImage(event){
+      this.image = event.target.files[0];
+      this.preview = URL.createObjectURL(event.target.files[0]);
+    },
+
+    uploadFile(event){
+      var formData = new FormData();
+        formData.append("image", this.image)
+        axios.post("/addimage", formData)
+        .then(response => {
+            this.image = response.data.data
+            this.message = response.data.message
+            this.preview = null
+            this.$refs.file.value = null;
+            this.errors = null
+
+            //console.log(response);
+        })
+        .catch(error => {
+            this.errors = error.response.data.errors.image
+            this.message = null
+        })
+    }
+
 };
 </script>

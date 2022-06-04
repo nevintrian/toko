@@ -8,7 +8,16 @@
                             <h6 class="text-xl font-bold text-blueGray-700 py-3">
                                 Data Produk
                             </h6>
-                        <BreezeButtonLink :href="route('product.create')">Tambah</BreezeButtonLink>
+                            <BreezeButtonLink :href="route('product.create')">Tambah</BreezeButtonLink>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="keywords"
+                                    class="mr-1 mb-1 px-4 py-3 text-sm leading-4 text-gray-800 border rounded"
+                                    placeholder="Search"
+                                    v-model="keywords"
+                                    @keyup="search" >
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,10 +107,14 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="rounded-t mb-0 px-4 py-3 border-0">
+                    <div class="flex flex-wrap items-center">
+                        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                            <pagination :links="products.links"/>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <pagination :links="products.links"/>
-
         </div>
     </BreezeAuthenticatedLayout>
 </template>
@@ -111,17 +124,25 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import Pagination from '@/Components/Pagination.vue'
 import BreezeButtonLink from'@/Components/ButtonLink.vue'
 import { Link } from '@inertiajs/inertia-vue3';
+import BreezeSearch from '@/Components/Search.vue'
 
 export default {
     components: {
         BreezeAuthenticatedLayout,
         Pagination,
         BreezeButtonLink,
-        Link
+        Link,
+        BreezeSearch
     },
 
     props: {
         products: Object,
+    },
+
+    data() {
+        return {
+            keywords: ''
+        };
     },
 
     methods: {
@@ -130,6 +151,9 @@ export default {
         },
         hide() {
             document.getElementById("successMessage").style.display = "none";
+        },
+        search() {
+            this.$inertia.get("/product", { keywords: this.keywords }, { preserveState: true });
         },
     },
 }

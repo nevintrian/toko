@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePurchaseRequest;
 use App\Models\Purchase;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class PurchaseController extends Controller
@@ -25,8 +26,14 @@ class PurchaseController extends Controller
             ], Response::HTTP_OK);
         }
 
+        if ($request->keywords) {
+            return Inertia::render('Purchases/Index', [
+                'purchases' => Purchase::where('code', 'LIKE', '%' . $request->keywords . '%')->paginate(),
+            ]);
+        }
+
         return Inertia::render('Purchases/Index', [
-            'purchases' => Purchase::paginate()
+            'purchases' => Purchase::paginate(5)
         ]);
     }
 
@@ -48,7 +55,8 @@ class PurchaseController extends Controller
      */
     public function store(StorePurchaseRequest $request)
     {
-        //
+        Purchase::create($request->all());
+        return Redirect::route('purchase.index')->with('success', 'Berhasil Tambah Pembelian.');
     }
 
     /**
@@ -70,7 +78,7 @@ class PurchaseController extends Controller
      */
     public function edit(Purchase $purchase)
     {
-        return Inertia::render('Purchase/Edit', [
+        return Inertia::render('Purchases/Edit', [
             'purchase' => $purchase
         ]);
     }
@@ -84,7 +92,8 @@ class PurchaseController extends Controller
      */
     public function update(UpdatePurchaseRequest $request, Purchase $purchase)
     {
-        //
+        Purchase::find($purchase->id)->update($request->all());
+        return Redirect::route('purchase.index')->with('success', 'Berhasil Ubah Pembelian.');
     }
 
     /**
@@ -95,6 +104,7 @@ class PurchaseController extends Controller
      */
     public function destroy(Purchase $purchase)
     {
-        //
+        Purchase::destroy($purchase->id);
+        return Redirect::route('purchase.index')->with('success', 'Berhasil Hapus Pembelian.');
     }
 }

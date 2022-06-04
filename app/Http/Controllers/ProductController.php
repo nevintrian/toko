@@ -26,9 +26,21 @@ class ProductController extends Controller
                 'data' => Product::all(),
             ], Response::HTTP_OK);
         }
-
+        if ($request->keywords) {
+            // $hasil = Product::with('category')->where('name', 'LIKE', '%' . $request->keywords . '%')
+            //     ->orWhere('code', 'LIKE', '%' . $request->keywords . '%')
+            //     ->orWhere('category_id', 'LIKE', '%' . $request->keywords . '%')
+            //     ->paginate();
+            // dd($hasil);
+            return Inertia::render('Products/Index', [
+                'products' => Product::with('category')
+                    ->where('name', 'LIKE', '%' . $request->keywords . '%')
+                    ->orWhere('code', 'LIKE', '%' . $request->keywords . '%')
+                    ->paginate(),
+            ]);
+        }
         return Inertia::render('Products/Index', [
-            'products' => Product::with('category')->paginate(),
+            'products' => Product::with('category')->paginate(5),
         ]);
     }
 
@@ -57,13 +69,13 @@ class ProductController extends Controller
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // ]);
 
+
         $input = $request->all();
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
+            $name = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $request->file('image')->move(public_path('images'), $name);
+            $input['image'] = "$name";
         }
 
         Product::create($input);
