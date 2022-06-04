@@ -1290,6 +1290,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
+.bg-lightBlue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
 .bg-opacity-40 {
   --tw-bg-opacity: 0.4;
 }
