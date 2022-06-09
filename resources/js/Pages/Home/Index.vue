@@ -19,7 +19,7 @@
                                 'https://wa.me/62' +
                                 homes?.data[0]?.contact.phone
                             "
-                            class="px-8 py-3 text-base font-semibold text-white transition duration-300 ease-in-out rounded-full bg-primary hover:opacity-80 hover:shadow-lg"
+                            class="px-8 py-3 text-base font-semibold text-slate-100 transition duration-300 ease-in-out rounded-full bg-blue-600 hover:opacity-80 hover:shadow-lg"
                             >Hubungi Saya</a
                         >
                     </div>
@@ -39,7 +39,7 @@
 
         <!-- Hero2 Section Start -->
         <section id="about" class="">
-            <div class="bg-slate-100">
+            <div class="bg-gray-800 py-16">
                 <div class="flex flex-wrap">
                     <div class="self-end w-full px-4 lg:w-1/2">
                         <div class="relative mt-10 lg:right-0 lg:mt-9">
@@ -52,12 +52,12 @@
                     </div>
                     <div class="self-center w-full px-4 lg:w-1/2 text-center">
                         <h1
-                            class="block m-4 text-4xl font-poppins font-semibold lead text-dark dark:text-white lg:text-3xl sm:text-center md:text-center xl:text-center"
+                            class="block m-4 text-4xl font-poppins font-semibold lead text-white dark:text-white lg:text-3xl sm:text-center md:text-center xl:text-center"
                         >
                             {{ homes?.data[1]?.title }}
                         </h1>
                         <p
-                            class="mb-10 font-medium leading-relaxed text-slate-500"
+                            class="mb-10 font-medium leading-relaxed text-slate-100"
                         >
                             {{ homes?.data[1]?.content }}
                         </p>
@@ -66,7 +66,7 @@
                                 'https://wa.me/62' +
                                 homes?.data[1]?.contact.phone
                             "
-                            class="px-8 py-3 text-base font-semibold text-white transition duration-300 ease-in-out rounded-full bg-primary hover:opacity-80 hover:shadow-lg"
+                            class="px-8 py-3 text-base font-semibold text-slate-100 transition duration-300 ease-in-out rounded-full bg-indigo-600 hover:opacity-80 hover:shadow-lg"
                             >Hubungi Saya</a
                         >
                     </div>
@@ -76,24 +76,26 @@
         <!-- Hero2 Section End -->
 
         <!-- categories -->
-        <div class="container py-16">
-            <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">
+        <div class="container my-12 mx-auto px-4 md:px-12">
+            <h2
+                class="text-2xl font-medium text-gray-800 uppercase mb-6 text-center"
+            >
                 Kategori Produk
             </h2>
-            <div class="grid grid-cols-3 gap-3">
+            <div class="flex flex-wrap -mx-1 lg:-mx-4">
                 <div
                     v-for="category in categories.data"
                     :key="category.id"
-                    class="relative rounded-sm overflow-hidden group"
+                    class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 relative rounded-sm overflow-hidden group"
                 >
                     <img
-                        src="assets/images/category/category-1.jpg"
-                        alt="category 1"
-                        class="w-full"
+                        src="assets/images/category/category-8.jpg"
+                        alt="category 8"
+                        class="w-24"
                     />
                     <a
                         :href="'/home/products?' + category.id"
-                        class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
+                        class="mx-2 absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition rounded-lg"
                         >{{ category.name }}</a
                     >
                 </div>

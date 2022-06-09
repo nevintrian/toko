@@ -30042,7 +30042,7 @@ var _hoisted_11 = {
   "class": ""
 };
 var _hoisted_12 = {
-  "class": "bg-slate-100"
+  "class": "bg-gray-800 py-16"
 };
 var _hoisted_13 = {
   "class": "flex flex-wrap"
@@ -30058,30 +30058,30 @@ var _hoisted_17 = {
   "class": "self-center w-full px-4 lg:w-1/2 text-center"
 };
 var _hoisted_18 = {
-  "class": "block m-4 text-4xl font-poppins font-semibold lead text-dark dark:text-white lg:text-3xl sm:text-center md:text-center xl:text-center"
+  "class": "block m-4 text-4xl font-poppins font-semibold lead text-white dark:text-white lg:text-3xl sm:text-center md:text-center xl:text-center"
 };
 var _hoisted_19 = {
-  "class": "mb-10 font-medium leading-relaxed text-slate-500"
+  "class": "mb-10 font-medium leading-relaxed text-slate-100"
 };
 var _hoisted_20 = ["href"];
 var _hoisted_21 = {
-  "class": "container py-16"
+  "class": "container my-12 mx-auto px-4 md:px-12"
 };
 
 var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "text-2xl font-medium text-gray-800 uppercase mb-6"
+  "class": "text-2xl font-medium text-gray-800 uppercase mb-6 text-center"
 }, " Kategori Produk ", -1
 /* HOISTED */
 );
 
 var _hoisted_23 = {
-  "class": "grid grid-cols-3 gap-3"
+  "class": "flex flex-wrap -mx-1 lg:-mx-4"
 };
 
 var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "assets/images/category/category-1.jpg",
-  alt: "category 1",
-  "class": "w-full"
+  src: "assets/images/category/category-8.jpg",
+  alt: "category 8",
+  "class": "w-24"
 }, null, -1
 /* HOISTED */
 );
@@ -30139,7 +30139,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
         href: 'https://wa.me/62' + ((_$props$homes3 = $props.homes) === null || _$props$homes3 === void 0 ? void 0 : (_$props$homes3$data$ = _$props$homes3.data[0]) === null || _$props$homes3$data$ === void 0 ? void 0 : _$props$homes3$data$.contact.phone),
-        "class": "px-8 py-3 text-base font-semibold text-white transition duration-300 ease-in-out rounded-full bg-primary hover:opacity-80 hover:shadow-lg"
+        "class": "px-8 py-3 text-base font-semibold text-slate-100 transition duration-300 ease-in-out rounded-full bg-blue-600 hover:opacity-80 hover:shadow-lg"
       }, "Hubungi Saya", 8
       /* PROPS */
       , _hoisted_7)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
@@ -30160,16 +30160,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
         href: 'https://wa.me/62' + ((_$props$homes8 = $props.homes) === null || _$props$homes8 === void 0 ? void 0 : (_$props$homes8$data$ = _$props$homes8.data[1]) === null || _$props$homes8$data$ === void 0 ? void 0 : _$props$homes8$data$.contact.phone),
-        "class": "px-8 py-3 text-base font-semibold text-white transition duration-300 ease-in-out rounded-full bg-primary hover:opacity-80 hover:shadow-lg"
+        "class": "px-8 py-3 text-base font-semibold text-slate-100 transition duration-300 ease-in-out rounded-full bg-indigo-600 hover:opacity-80 hover:shadow-lg"
       }, "Hubungi Saya", 8
       /* PROPS */
       , _hoisted_20)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hero2 Section End "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" categories "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.categories.data, function (category) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           key: category.id,
-          "class": "relative rounded-sm overflow-hidden group"
+          "class": "my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 relative rounded-sm overflow-hidden group"
         }, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
           href: '/home/products?' + category.id,
-          "class": "absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
+          "class": "mx-2 absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition rounded-lg"
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.name), 9
         /* TEXT, PROPS */
         , _hoisted_25)]);
