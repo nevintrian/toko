@@ -1,19 +1,23 @@
+<style>
+.header1 {
+    color: red;
+}
+</style>
 <template>
-<BreezeIndex>
-    <ul v-for="about in abouts.data" :key="about.id">
-        <li>{{about.title}}</li>
-        <li>{{about.content}}</li>
-    </ul>
-</BreezeIndex>
-
+    <BreezeIndex>
+        <h1 class="text-center header1">Halaman About</h1>
+        <ul v-for="about in abouts.data" :key="about.id">
+            <li>{{ about.title }}</li>
+            <li>{{ about.content }}</li>
+        </ul>
+    </BreezeIndex>
 </template>
 
-
 <script>
-import BreezeIndex from '@/Layouts/Home/Index.vue'
+import BreezeIndex from "@/Layouts/Home/Index.vue";
 export default {
     components: {
-        BreezeIndex
+        BreezeIndex,
     },
 
     props: {
@@ -30,8 +34,6 @@ export default {
     //     };
     // },
 
-    methods: {
-
-    },
+    methods: {},
 };
 </script>
