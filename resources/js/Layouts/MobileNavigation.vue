@@ -111,6 +111,49 @@
                     </li>
                 </ul>
                 <nav-heading class="mt-4">
+                    Homepage
+                </nav-heading>
+                <ul class="flex flex-col list-none md:flex-col md:min-w-full">
+                    <li class="items-center">
+                        <nav-link :href="route('home.index')" :active="route().current('home.index') || route().current('home.create') || route().current('home.edit')">
+                            <template #icon>
+                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                            </template>
+                            Home
+                        </nav-link>
+                    </li>
+                </ul>
+                <ul class="flex flex-col list-none md:flex-col md:min-w-full">
+                    <li class="items-center">
+                        <nav-link :href="route('faq.index')" :active="route().current('faq.index') || route().current('faq.create') || route().current('faq.edit')">
+                            <template #icon>
+                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                            </template>
+                            FAQ
+                        </nav-link>
+                    </li>
+                </ul>
+                <ul class="flex flex-col list-none md:flex-col md:min-w-full">
+                    <li class="items-center">
+                        <nav-link :href="route('about.index')" :active="route().current('about.index') || route().current('about.create') || route().current('about.edit')">
+                            <template #icon>
+                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                            </template>
+                            About
+                        </nav-link>
+                    </li>
+                </ul>
+                <ul class="flex flex-col list-none md:flex-col md:min-w-full">
+                    <li class="items-center">
+                        <nav-link :href="route('contact.index')" :active="route().current('contact.index') || route().current('contact.create') || route().current('contact.edit')">
+                            <template #icon>
+                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                            </template>
+                            Kontak
+                        </nav-link>
+                    </li>
+                </ul>
+                <nav-heading class="mt-4">
                     Profil
                 </nav-heading>
                 <ul class="flex flex-col list-none md:flex-col md:min-w-full">

@@ -19,7 +19,7 @@
                                     @keyup="search" >
                             </div>
                         </div>
-                        <Link :href="route('order.index')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-4 rounded mr-3">Cetak Laporan</Link>
+                        <!-- <Link :href="route('order.index')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-4 rounded mr-3">Cetak Laporan</Link> -->
                     </div>
                 </div>
 

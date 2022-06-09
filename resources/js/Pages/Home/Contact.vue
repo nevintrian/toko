@@ -1,6 +1,11 @@
 <template>
 <BreezeIndex>
     <h1>Ini adalah halaman contact</h1>
+    <ul v-for="contact in contacts.data" :key="contact.id">
+        <li>{{contact.name}}</li>
+        <li>{{contact.phone}}</li>
+        <li>{{contact.address}}</li>
+    </ul>
 </BreezeIndex>
 
 </template>
@@ -9,6 +14,10 @@ import BreezeIndex from '@/Layouts/Home/Index.vue'
 export default {
     components: {
         BreezeIndex
+    },
+
+    props: {
+        contacts: Object,
     },
 
     // data() {

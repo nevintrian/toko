@@ -1,14 +1,23 @@
 <template>
 <BreezeIndex>
-    <h1>Ini adalah halaman about</h1>
+    <ul v-for="about in abouts.data" :key="about.id">
+        <li>{{about.title}}</li>
+        <li>{{about.content}}</li>
+    </ul>
 </BreezeIndex>
 
 </template>
+
+
 <script>
 import BreezeIndex from '@/Layouts/Home/Index.vue'
 export default {
     components: {
         BreezeIndex
+    },
+
+    props: {
+        abouts: Object,
     },
 
     // data() {

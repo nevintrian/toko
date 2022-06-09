@@ -17,13 +17,13 @@
                     <Link :href="route('home.about')"  class="md:p-4 py-2 block hover:text-purple-400" href="#">Tentang</Link>
                 </li>
                 <li>
-                    <Link :href="route('home.contact')"  class="md:p-4 py-2 block hover:text-purple-400" href="#">Kerja Sama</Link>
+                    <Link :href="route('home.contact')"  class="md:p-4 py-2 block hover:text-purple-400" href="#">Kontak</Link>
                 </li>
                 <li>
                     <Link :href="route('home.faq')" class="md:p-4 py-2 block hover:text-purple-400" href="#">Faq</Link>
                 </li>
                 <li>
-                    <Link :href="route('login')" class="md:p-4 py-2 block hover:text-amber-700 text-amber-800 font-semibold" href="pages/login.html">{{this.$page?.props?.auth?.user?.name ?? 'LOGIN'}}</Link>
+                    <Link :href="route('login')" class="md:p-4 py-2 block hover:text-amber-700 text-amber-800 font-semibold" href="#">{{this.$page?.props?.auth?.user?.name ?? 'LOGIN'}}</Link>
                 </li>
             </ul>
         </div>

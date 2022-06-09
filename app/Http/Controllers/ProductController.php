@@ -62,22 +62,12 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-
-        // $request->validate([
-        //     'name' => 'required',
-        //     'detail' => 'required',
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
-
-
         $input = $request->all();
-
-        if ($image = $request->file('image')) {
-            $name = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $request->file('image')->move(public_path('images'), $name);
-            $input['image'] = "$name";
-        }
-
+        $image = $request->file('image');
+        $destinationPath = public_path() . '/uploads/products/';
+        $filename = date('YmdHis') . "." . $image->getClientOriginalExtension();
+        $image->move($destinationPath, $filename);
+        $input['image'] = "$filename";
         Product::create($input);
         return Redirect::route('product.index')->with('success', 'Berhasil Tambah Produk.');
     }
@@ -120,10 +110,10 @@ class ProductController extends Controller
         $input = $request->all();
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
+            $destinationPath = public_path() . '/uploads/products/';
+            $filename = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $filename);
+            $input['image'] = "$filename";
         } else {
             unset($input['image']);
         }

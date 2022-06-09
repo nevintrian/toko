@@ -96,7 +96,7 @@
                                 {{ product.sold }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                <img src="/image/{{ product.image }}" width="100px">
+                                <img :src="'/uploads/products/'+product.image" alt="image" />
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                 <Link :href="route('product.edit', product.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Ubah</Link>

@@ -28,7 +28,7 @@
 
                     <BreezeValidationErrors class="mb-4"/>
 
-                    <form @submit.prevent="submit" method="POST" enctype="multipart/form-data">
+                    <form @submit.prevent="submit">
                         <div class="flex flex-wrap">
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
@@ -103,6 +103,19 @@
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
+                                    <BreezeLabel for="description" value="Deskripsi"/>
+                                        <textarea
+                                            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                            id="description"
+                                            rows="3"
+                                            placeholder="Masukkan deskripsi produk"
+                                            v-model="form.description"
+                                            required
+                                        ></textarea>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
                                     <BreezeLabel for="sold" value="Terjual"/>
                                     <BreezeInput
                                         placeholder="Masukkan jumlah produk terjual"
@@ -115,12 +128,12 @@
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
-                                    <BreezeLabel for="image" value="Gambar" @change="fileImage"/>
+                                    <BreezeLabel for="image" value="Gambar"/>
                                     <BreezeInput
                                         id="image"
                                         type="file"
-                                        v-model="form.image"
                                         required
+                                        @input="form.image = $event.target.files[0]"
                                     />
                                 </div>
                             </div>
@@ -131,7 +144,7 @@
                                 <Link :href="route('product.index')" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded mr-3">Kembali</Link>
                                 <BreezeButton
                                     :class="{ 'opacity-25': form.processing }"
-                                    :disabled="form.processing"  @click="uploadFile">
+                                    :disabled="form.processing">
                                     Simpan
                                 </BreezeButton>
                             </div>
@@ -174,6 +187,7 @@ export default {
                 name : '',
                 category_id : '',
                 brand : '',
+                description : '',
                 stock : '',
                 price : '',
                 sold : '',
@@ -193,29 +207,6 @@ export default {
         },
     },
 
-    fileImage(event){
-      this.image = event.target.files[0];
-      this.preview = URL.createObjectURL(event.target.files[0]);
-    },
-
-    uploadFile(event){
-      var formData = new FormData();
-        formData.append("image", this.image)
-        axios.post("/addimage", formData)
-        .then(response => {
-            this.image = response.data.data
-            this.message = response.data.message
-            this.preview = null
-            this.$refs.file.value = null;
-            this.errors = null
-
-            //console.log(response);
-        })
-        .catch(error => {
-            this.errors = error.response.data.errors.image
-            this.message = null
-        })
-    }
 
 };
 </script>

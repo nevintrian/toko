@@ -5,10 +5,7 @@
         <a href="../index.html" class="text-primary text-base">
             <i class="fa-solid fa-house"></i>
         </a>
-        <span class="text-sm text-gray-400">
-        <i class="fa-solid fa-chevron-right"></i>
-      </span>
-        <p class="text-gray-600 font-medium shop">Shop</p>
+     <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">Produk Terlaris</h2>
     </div>
 
     <div class="container">
@@ -24,7 +21,6 @@
     </div>
 
     <div class="container py-5">
-
         <form>
         <span class="mr-3">Kategori</span>
             <select v-model="filters" @change="filter" name="filter" class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
@@ -37,41 +33,51 @@
         </form>
     </div>
     <!-- product -->
-    <div class="container my-12 mx-auto px-4 md:px-12">
-        <div class="flex flex-wrap -mx-1 lg:-mx-4">
+    <div v-if="products.data.length">
+        <div class="container my-12 mx-auto px-4 md:px-12">
+            <div class="flex flex-wrap -mx-1 lg:-mx-4">
             <!-- Column -->
-            <div v-for="product in products.data" :key="product.id" class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-                <!-- Article -->
-                <article class="overflow-hidden rounded-lg shadow-lg">
-                    <a href="#">
-                        <img alt="Placeholder" class="block h-auto w-full" src="https://picsum.photos/600/400/?random" />
-                    </a>
 
-                    <header class="flex items-center justify-between leading-tight p-2 md:p-4">
-                        <h1 class="text-lg">
-                            <a class="no-underline hover:underline text-black" href="#"> {{ product.name }} </a>
-                        </h1>
-                        <p class="text-grey-darker text-sm">{{ product.price }}</p>
-                    </header>
+                <div v-for="product in products.data" :key="product.id" class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+                    <!-- Article -->
+                    <article class="overflow-hidden rounded-lg shadow-lg">
+                        <Link :href="route('home.product', product.id)">
+                            <img alt="Placeholder" class="block h-auto w-full" :src="'/uploads/products/'+product.image" />
+                        </Link>
 
-                    <footer class="flex items-center justify-between leading-none p-2 md:p-4">
-                        <a class="flex items-center text-black" href="#">
+                        <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                            <h1 class="text-lg">
+                                <a class="no-underline hover:underline text-black" href="#"> {{ product.name }} </a>
+                            </h1>
+                        </header>
+                        <p>Stok : {{product.stock}}</p>
+                        <p>Harga : {{product.price}}</p>
+                        <p>Terjual : {{product.sold}}</p>
+
+                        <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                        <Link class="flex items-center text-black" :href="route('home.product', product.id)">
                             <button class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                            BUY
+                            Lihat
                             </button>
-                        </a>
-                        <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
-                            <span class="hidden">Like</span>
-                            <i class="fa fa-heart"></i>
-                        </a>
-                    </footer>
-                </article>
-                <!-- END Article -->
-            </div>
+                        </Link>
+                        </footer>
+                    </article>
+                    <!-- END Article -->
+                </div>
+
             <!-- END Column -->
+            </div>
         </div>
+        <!-- ./product -->
     </div>
-    <!-- ./product -->
+    <div v-else>
+        <div class="container my-12 mx-auto px-4 md:px-12">
+            <div class="flex flex-wrap -mx-1 lg:-mx-4">
+                 <p>not found</p>
+            </div>
+        </div>
+
+    </div>
 
 
 </BreezeIndex>
@@ -79,9 +85,11 @@
 </template>
 <script>
 import BreezeIndex from '@/Layouts/Home/Index.vue'
+import { Link } from '@inertiajs/inertia-vue3';
 export default {
     components: {
-        BreezeIndex
+        BreezeIndex,
+        Link
     },
 
     props: {
@@ -102,7 +110,10 @@ export default {
         },
         filter() {
             this.$inertia.get("/home/products", { filter: this.filters }, { preserveState: true });
-        }
+        },
+
+
+
     },
 };
 </script>

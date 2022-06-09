@@ -4,19 +4,20 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class HomeProductController extends Controller
 {
-    public function index(Request $request)
+    public function index($id)
     {
         return Inertia::render('Home/Product', [
-            'categories' => Category::paginate(),
-            'products' => Product::paginate()
+            'product' => Product::with('category')
+                ->where('id', $id)
+                ->paginate(),
+            'contact' => Contact::paginate()
         ]);
-
-
     }
 }

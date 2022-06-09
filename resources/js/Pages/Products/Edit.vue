@@ -97,6 +97,19 @@
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
+                                    <BreezeLabel for="description" value="Deskripsi"/>
+                                        <textarea
+                                            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                            id="description"
+                                            rows="3"
+                                            placeholder="Masukkan deskripsi produk"
+                                            v-model="form.description"
+                                            required
+                                        ></textarea>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
                                     <BreezeLabel for="sold" value="Terjual"/>
                                     <BreezeInput
                                         id="sold"
@@ -108,12 +121,11 @@
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
-                                    <BreezeLabel for="image" value="Gambar" @change="fileImage"/>
+                                    <BreezeLabel for="image" value="Gambar"/>
                                     <BreezeInput
                                         id="image"
                                         type="file"
-                                        v-model="form.image"
-                                        required
+                                        @input="form.image = $event.target.files[0]"
                                     />
                                 </div>
                             </div>
@@ -168,21 +180,25 @@ export default {
     data() {
         return {
             form: useForm({
+                _method: 'put',
                 code: this.$page.props.product['code'],
                 name: this.$page.props.product['name'],
                 category_id: this.$page.props.product['category_id'],
                 brand: this.$page.props.product['brand'],
+                description: this.$page.props.product['description'],
                 stock: this.$page.props.product['stock'],
                 price: this.$page.props.product['price'],
                 sold: this.$page.props.product['sold'],
+                image: this.$page.props.product['image'],
             }),
         };
     },
 
     methods: {
         submit() {
-            this.form.put(this.route('product.update', this.$page.props.product['id']), {
-
+            this.form.post(this.route('product.update', this.$page.props.product['id']), {
+                _method: 'put',
+                preserveState: true
             })
         },
     },

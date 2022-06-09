@@ -1,25 +1,10 @@
 <template>
     <Head title="Log in"/>
 
-    <div class="px-4 w-full lg:w-4/12">
-        <div
-            class="flex relative flex-col mb-6 w-full min-w-0 break-words rounded-lg border-0 shadow-lg bg-blueGray-200">
-            <div class="px-6 py-6 mb-0 rounded-t">
-                <div class="mb-3 text-center">
-                    <h6 class="text-sm font-bold text-blueGray-500">
-                        Sign in
-                    </h6>
-                </div>
-
-                <BreezeValidationErrors class="mb-4"/>
-
-                <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-                    {{ status }}
-                </div>
-                <hr class="mt-6 border-b-1 border-blueGray-300"/>
-            </div>
-            <div class="flex-auto px-4 py-10 pt-0 lg:px-10">
-
+<BreezeIndex>
+     <div class="contain py-16 font-poppins">
+        <div class="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
+            <h2 class="text-2xl uppercase font-medium mb-5">Login</h2>
                 <form @submit.prevent="submit">
                     <div class="relative mb-3 w-full">
                         <BreezeLabel for="email" value="Email"/>
@@ -33,42 +18,30 @@
                                      required autocomplete="current-password"/>
                     </div>
 
-                    <div>
-                        <label class="inline-flex items-center cursor-pointer">
-                            <BreezeCheckbox name="remember" v-model:checked="form.remember"/>
-                            <span class="ml-2 text-sm font-semibold text-blueGray-600">
-                                Remember me
-                            </span>
-                        </label>
-                    </div>
-
-                    <div class="mt-6 text-center">
+                    <div class="mt-6 mb-4 text-center">
                         <BreezeButton class="w-full" :class="{ 'opacity-25': form.processing }"
                                       :disabled="form.processing">
                             Log in
                         </BreezeButton>
 
-                        <Link v-if="canResetPassword" :href="route('password.request')" class="text-sm text-gray-600 underline hover:text-gray-900">
-                            Forgot your password?
-                        </Link>
                     </div>
                 </form>
-            </div>
         </div>
     </div>
+</BreezeIndex>
+
 </template>
 
 <script>
 import BreezeButton from '@/Components/Button.vue'
 import BreezeCheckbox from '@/Components/Checkbox.vue'
-import BreezeGuestLayout from '@/Layouts/Guest.vue'
 import BreezeInput from '@/Components/Input.vue'
 import BreezeLabel from '@/Components/Label.vue'
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
 import { Head, Link } from '@inertiajs/inertia-vue3';
+import BreezeIndex from '@/Layouts/Home/Index.vue'
 
 export default {
-    layout: BreezeGuestLayout,
 
     components: {
         BreezeButton,
@@ -78,6 +51,7 @@ export default {
         BreezeValidationErrors,
         Head,
         Link,
+        BreezeIndex
     },
 
     props: {
