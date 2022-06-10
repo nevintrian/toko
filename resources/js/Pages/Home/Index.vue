@@ -142,7 +142,7 @@
                         >
                             Rp {{ product.price }}
                         </p>
-                        <p class="ml-4 font-sans text-lg">
+                        <p class="ml-4 font-sans text-lg text-slate-500">
                             {{ product.sold }} Terjual
                         </p>
 
@@ -154,7 +154,7 @@
                                 :href="route('home.product', product.id)"
                             >
                                 <button
-                                    class="inline-block px-6 py-2.5 bg-slate-800 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-slate-700 hover:shadow-lg focus:bg-slate-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-900 active:shadow-lg transition duration-150 ease-in-out"
+                                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-900 active:shadow-lg transition duration-150 ease-in-out"
                                 >
                                     Beli
                                 </button>
