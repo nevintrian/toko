@@ -1,27 +1,40 @@
 <template>
-<BreezeIndex>
-    <section class="text-gray-700 body-font overflow-hidden bg-white">
-        <div class="container px-5 py-24 mx-auto" style="cursor: auto">
-            <div class="flex flex-wrap">
-                <div class="w-full px-4 mb-5" v-for="faq in faqs.data" :key="faq.id" >
-                    <button @click="hideFaq" class="accordion mb-2 text-lg font-bold text-dark px-6">+ {{ faq.question }}</button>
-                    <div class="panel hidden px-6">
-                        <p class="font-medium text-md text-dark md:text-lg">
-                            {{ faq.answer }}
-                        </p>
+    <BreezeIndex>
+        <section class="text-gray-700 overflow-hidden bg-white">
+            <h1 class="text-center text-2xl font-sans font-bold my-4">
+                Halaman FAQ
+            </h1>
+            <div class="container px-5 mx-auto" style="cursor: auto">
+                <div class="flex flex-wrap">
+                    <div
+                        class="w-full px-4 mb-5"
+                        v-for="faq in faqs.data"
+                        :key="faq.id"
+                    >
+                        <button
+                            @click="hideFaq"
+                            class="accordion mb-2 text-lg font-bold text-dark px-6"
+                        >
+                            + {{ faq.question }}
+                        </button>
+                        <div class="panel hidden px-6">
+                            <p
+                                class="font-medium text-md text-slate-500 md:text-lg"
+                            >
+                                {{ faq.answer }}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</BreezeIndex>
-
+        </section>
+    </BreezeIndex>
 </template>
 <script>
-import BreezeIndex from '@/Layouts/Home/Index.vue'
+import BreezeIndex from "@/Layouts/Home/Index.vue";
 export default {
     components: {
-        BreezeIndex
+        BreezeIndex,
     },
 
     // data() {
@@ -43,7 +56,7 @@ export default {
         var i;
 
         for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
+            acc[i].addEventListener("click", function () {
                 this.classList.toggle("active");
                 var panel = this.nextElementSibling;
                 if (panel.style.display === "block") {
@@ -53,6 +66,6 @@ export default {
                 }
             });
         }
-    }
+    },
 };
 </script>
