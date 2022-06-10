@@ -1,19 +1,25 @@
 <template>
-<BreezeIndex>
-    <h1>Ini adalah halaman contact</h1>
-    <ul v-for="contact in contacts.data" :key="contact.id">
-        <li>{{contact.name}}</li>
-        <li>{{contact.phone}}</li>
-        <li>{{contact.address}}</li>
-    </ul>
-</BreezeIndex>
-
+    <BreezeIndex>
+        <h1 class="ml-4 text-xl font-sans font-bold my-4">
+            Ini adalah halaman contact
+        </h1>
+        <ul v-for="contact in contacts.data" :key="contact.id">
+            <li class="ml-4 text-xl font-sans">☢ {{ contact.name }}</li>
+            <li class="ml-4 text-xl font-sans">💌 {{ contact.phone }}</li>
+            <li class="ml-4 mb-4 text-xl font-sans">
+                💨 {{ contact.address }}
+            </li>
+        </ul>
+    </BreezeIndex>
+    <!-- <img
+                    src="https://img.icons8.com/small/32/undefined/contacts.png"
+                /> -->
 </template>
 <script>
-import BreezeIndex from '@/Layouts/Home/Index.vue'
+import BreezeIndex from "@/Layouts/Home/Index.vue";
 export default {
     components: {
-        BreezeIndex
+        BreezeIndex,
     },
 
     props: {
@@ -30,8 +36,6 @@ export default {
     //     };
     // },
 
-    methods: {
-
-    },
+    methods: {},
 };
 </script>

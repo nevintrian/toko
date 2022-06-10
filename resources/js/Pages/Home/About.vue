@@ -1,14 +1,13 @@
-<style>
-.header1 {
-    color: red;
-}
-</style>
 <template>
     <BreezeIndex>
-        <h1 class="text-center header1">Halaman About</h1>
+        <h1 class="text-center text-2xl font-sans font-bold my-4">
+            Halaman About
+        </h1>
         <ul v-for="about in abouts.data" :key="about.id">
-            <li>{{ about.title }}</li>
-            <li>{{ about.content }}</li>
+            <li class="text-xl font-sans ml-8">
+                {{ about.title }}
+            </li>
+            <li class="font-sans ml-8 mb-10">{{ about.content }}</li>
         </ul>
     </BreezeIndex>
 </template>
