@@ -840,6 +840,22 @@ select {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
+.mx-12 {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
 .mr-3 {
   margin-right: 0.75rem;
 }
@@ -996,6 +1012,9 @@ select {
 .h-40 {
   height: 10rem;
 }
+.h-14 {
+  height: 3.5rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1032,6 +1051,18 @@ select {
 .w-screen {
   width: 100vw;
 }
+.w-14 {
+  width: 3.5rem;
+}
+.w-64 {
+  width: 16rem;
+}
+.w-32 {
+  width: 8rem;
+}
+.w-80 {
+  width: 20rem;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1052,6 +1083,12 @@ select {
 }
 .flex-auto {
   flex: 1 1 auto;
+}
+.flex-none {
+  flex: none;
+}
+.flex-initial {
+  flex: 0 1 auto;
 }
 .flex-grow {
   flex-grow: 1;
@@ -1106,6 +1143,9 @@ select {
 }
 .content-center {
   align-content: center;
+}
+.items-end {
+  align-items: flex-end;
 }
 .items-center {
   align-items: center;
@@ -1234,6 +1274,14 @@ select {
 .border-gray-400 {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
+.border-slate-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(100 116 139 / var(--tw-border-opacity));
+}
+.border-gray-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 .bg-blue-500 {
   --tw-bg-opacity: 1;
@@ -1417,6 +1465,10 @@ select {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 .pt-1 {
   padding-top: 0.25rem;
@@ -2167,6 +2219,14 @@ select {
     padding: 1rem;
   }
 
+  .md\:p-2 {
+    padding: 0.5rem;
+  }
+
+  .md\:p-10 {
+    padding: 2.5rem;
+  }
+
   .md\:px-10 {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
@@ -2180,6 +2240,11 @@ select {
   .md\:px-12 {
     padding-left: 3rem;
     padding-right: 3rem;
+  }
+
+  .md\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .md\:pt-32 {

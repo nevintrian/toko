@@ -34,7 +34,7 @@ class HomeProductsController extends Controller
 
         return Inertia::render('Home/Products', [
             'categories' => Category::paginate(),
-            'products' => Product::paginate()
+            'products' => Product::orderBy('sold', 'DESC')->paginate(),
         ]);
     }
 }

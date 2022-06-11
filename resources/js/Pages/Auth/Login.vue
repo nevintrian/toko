@@ -5,6 +5,7 @@
      <div class="contain py-16 font-poppins">
         <div class="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
             <h2 class="text-2xl uppercase font-medium mb-5">Login</h2>
+                <BreezeValidationErrors class="mb-4"/>
                 <form @submit.prevent="submit">
                     <div class="relative mb-3 w-full">
                         <BreezeLabel for="email" value="Email"/>

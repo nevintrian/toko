@@ -8,12 +8,12 @@
                             <h6 class="text-xl font-bold text-blueGray-700 py-3">
                                 Data Produk
                             </h6>
-                            <div class="flex-row">
+                            <div class="flex items-center justify-between">
                                 <BreezeButtonLink :href="route('product.create')">Tambah</BreezeButtonLink>
                                 <input
                                     type="text"
                                     name="keywords"
-                                    class="mr-1 mb-1 px-4 py-3 text-sm leading-4 text-gray-800 border rounded"
+                                    class="mr-1 px-4 py-3 text-sm leading-4 text-gray-800 border rounded"
                                     placeholder="Search"
                                     v-model="keywords"
                                     @keyup="search" >

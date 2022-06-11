@@ -1,6 +1,6 @@
 <template>
     <BreezeIndex>
-         <h1 class="text-center text-2xl font-sans font-bold my-4">
+         <h1 class="text-center text-2xl font-sans font-bold my-6">
             Detail Produk
         </h1>
 

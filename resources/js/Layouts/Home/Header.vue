@@ -23,7 +23,7 @@
                 d="M4 6h16M4 12h16M4 18h16"
             />
         </svg>
-        <div class="hidden w-full md:flex md:items-center md:w-auto" id="menu">
+        <div class="hidden w-full md:flex md:items-center md:w-auto mx-10" id="menu">
             <ul
                 class="pt-4 text-base text-gray-700 md:flex md:justify-between md:pt-0"
             >
@@ -35,14 +35,7 @@
                         >Produk</Link
                     >
                 </li>
-                <li>
-                    <Link
-                        :href="route('home.about')"
-                        class="md:p-4 py-2 block font-sans font-semibold hover:text-blue-400"
-                        href="#"
-                        >Tentang</Link
-                    >
-                </li>
+
                 <li>
                     <Link
                         :href="route('home.contact')"
@@ -56,10 +49,18 @@
                         :href="route('home.faq')"
                         class="md:p-4 py-2 block font-sans font-semibold hover:text-blue-400"
                         href="#"
-                        >Faq</Link
+                        >FAQ</Link
                     >
                 </li>
                 <li>
+                    <Link
+                        :href="route('home.about')"
+                        class="md:p-4 py-2 block font-sans font-semibold hover:text-blue-400"
+                        href="#"
+                        >About</Link
+                    >
+                </li>
+                <!-- <li>
                     <Link
                         :href="route('login')"
                         class="md:p-4 py-2 block hover:text-blue-700 text-blue-900 font-semibold"
@@ -68,7 +69,7 @@
                             this.$page?.props?.auth?.user?.name ?? "LOGIN"
                         }}</Link
                     >
-                </li>
+                </li> -->
             </ul>
         </div>
     </nav>
