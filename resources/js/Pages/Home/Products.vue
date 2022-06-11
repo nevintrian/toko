@@ -1,9 +1,10 @@
 <template>
     <BreezeIndex>
         <div class="container py-4 flex items-center gap-3">
-            <h2 class="ml-6 text-2xl font-medium text-gray-800 uppercase mb-6">
-                Produk Terlaris
-            </h2>
+
+            <h1 class="text-center ml-6  text-2xl font-sans font-bold my-4">
+                Semua Produk
+            </h1>
         </div>
 
         <div class="container">
@@ -36,16 +37,14 @@
             </div>
         </div>
 
-        <div class="container py-5">
-            <form>
-                <span class="ml-6 mr-3">Kategori</span>
+        <div class="container py-5 ml-6">
                 <select
                     v-model="filters"
                     @change="filter"
                     name="filter"
                     class="rounded-md border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10 mr-2"
                 >
-                    <option></option>
+                    <option value="" disabled selected hidden>Pilih Kategori</option>
                     <option
                         :value="category.id"
                         v-for="category in categories.data"
@@ -54,14 +53,6 @@
                         {{ category.name }}
                     </option>
                 </select>
-                <button
-                    class="bg-blue-600 text-white rounded-md p-2"
-                    type="submit"
-                    value="Submit"
-                >
-                    Submit
-                </button>
-            </form>
         </div>
         <!-- product -->
         <div v-if="products.data.length">
@@ -130,8 +121,8 @@
         </div>
         <div v-else>
             <div class="container my-12 mx-auto px-4 md:px-12">
-                <div class="flex flex-wrap -mx-1 lg:-mx-4">
-                    <p>not found</p>
+                <div class="text-center">
+                    <h2>Produk tidak ditemukan</h2>
                 </div>
             </div>
         </div>

@@ -1,10 +1,8 @@
 <template>
     <BreezeIndex>
-        <h2
-            class="text-center text-2xl font-medium text-gray-800 uppercase mb-6 mt-6"
-        >
+         <h1 class="text-center text-2xl font-sans font-bold my-4">
             Detail Produk
-        </h2>
+        </h1>
 
         <section class="text-gray-700 body-font overflow-hidden bg-white">
             <div class="container px-5 pb-24 pt-12 mx-auto">
@@ -77,7 +75,7 @@
                                         scope="row"
                                         class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
                                     >
-                                        Ukuran
+                                        Deskripsi
                                     </th>
                                     <td class="px-6 py-4">
                                         {{ product.data[0].description }}

@@ -8,8 +8,8 @@
                             <h6 class="text-xl font-bold text-blueGray-700 py-3">
                                 Data Produk
                             </h6>
-                            <BreezeButtonLink :href="route('product.create')">Tambah</BreezeButtonLink>
-                            <div>
+                            <div class="flex-row">
+                                <BreezeButtonLink :href="route('product.create')">Tambah</BreezeButtonLink>
                                 <input
                                     type="text"
                                     name="keywords"

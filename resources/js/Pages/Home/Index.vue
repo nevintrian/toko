@@ -77,11 +77,9 @@
 
         <!-- categories -->
         <div class="container my-12 mx-auto px-4 md:px-12">
-            <h2
-                class="text-2xl font-medium text-gray-800 uppercase mb-6 text-center"
-            >
-                Kategori Produk
-            </h2>
+         <h1 class="text-center text-2xl font-sans font-bold my-4">
+            Kategori Produk
+        </h1>
             <div class="flex flex-wrap -mx-1 lg:-mx-4">
                 <div
                     v-for="category in categories.data"
@@ -105,9 +103,9 @@
 
         <!-- product -->
         <div class="container my-12 mx-auto px-4 md:px-12">
-            <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">
-                Produk Terlaris
-            </h2>
+         <h1 class="text-center text-2xl font-sans font-bold my-4">
+            Produk Terlaris
+        </h1>
             <div class="flex flex-wrap -mx-1 lg:-mx-4">
                 <!-- Column -->
                 <div

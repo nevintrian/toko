@@ -1,10 +1,10 @@
 <template>
     <BreezeIndex>
-        <h1 class="text-center text-2xl font-sans font-bold my-4">
+        <h1 class="text-center text-2xl font-sans font-bold my-6">
             Halaman About
         </h1>
-        <ul v-for="about in abouts.data" :key="about.id">
-            <li class="text-xl font-sans ml-8">
+        <ul class="ml-10" v-for="about in abouts.data" :key="about.id">
+            <li class="text-xl font-sans ml-8 font-bold">
                 {{ about.title }}
             </li>
             <li class="font-sans ml-8 mb-10">{{ about.content }}</li>

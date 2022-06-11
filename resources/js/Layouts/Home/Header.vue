@@ -4,7 +4,7 @@
     >
         <div>
             <Link :href="route('home')">
-                <h1 class="ml-10">Macnifique Collection</h1>
+                <h1 class="ml-10 md:p-4 py-2 block font-sans font-semibold hover:text-blue-400">Macnifique Collection</h1>
             </Link>
         </div>
         <svg

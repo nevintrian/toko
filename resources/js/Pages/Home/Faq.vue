@@ -1,13 +1,12 @@
 <template>
     <BreezeIndex>
-        <section class="text-gray-700 overflow-hidden bg-white">
-            <h1 class="text-center text-2xl font-sans font-bold my-4">
+            <h1 class="text-center text-2xl font-sans font-bold my-6">
                 Halaman FAQ
             </h1>
-            <div class="container px-5 mx-auto" style="cursor: auto">
+            <div class="container ml-12" style="cursor: auto">
                 <div class="flex flex-wrap">
                     <div
-                        class="w-full px-4 mb-5"
+                        class="w-full mb-5"
                         v-for="faq in faqs.data"
                         :key="faq.id"
                     >
@@ -27,7 +26,6 @@
                     </div>
                 </div>
             </div>
-        </section>
     </BreezeIndex>
 </template>
 <script>
@@ -36,16 +34,6 @@ export default {
     components: {
         BreezeIndex,
     },
-
-    // data() {
-    //     return {
-    //         user_count: this.$page.props.user_count,
-    //         category_count: this.$page.props.category_count,
-    //         product_count: this.$page.props.product_count,
-    //         order_count: this.$page.props.order_count,
-    //         purchase_count: this.$page.props.purchase_count,
-    //     };
-    // },
 
     props: {
         faqs: Object,
