@@ -1,8 +1,11 @@
 <template>
     <BreezeIndex>
-            <h1 class="text-center text-2xl font-sans font-bold my-6">
-                Halaman FAQ
-            </h1>
+        <h1 class="text-center text-2xl font-sans font-bold my-6">
+            Halaman FAQ
+        </h1>
+        <div
+            class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-2xl mb-80 mt-6"
+        >
             <div class="container ml-12" style="cursor: auto">
                 <div class="flex flex-wrap">
                     <div
@@ -12,7 +15,7 @@
                     >
                         <button
                             @click="hideFaq"
-                            class="accordion mb-2 text-lg font-bold text-dark px-6"
+                            class="mt-2 accordion mb-2 text-lg font-bold text-dark px-6"
                         >
                             + {{ faq.question }}
                         </button>
@@ -26,6 +29,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </BreezeIndex>
 </template>
 <script>

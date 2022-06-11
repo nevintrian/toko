@@ -77,19 +77,19 @@
 
         <!-- categories -->
         <div class="container my-12 mx-auto px-4 md:px-12">
-         <h1 class="text-center text-2xl font-sans font-bold my-4">
-            Kategori Produk
-        </h1>
+            <h1 class="text-center text-2xl font-sans font-bold my-4">
+                Kategori Produk
+            </h1>
             <div class="flex flex-wrap -mx-1 lg:-mx-4">
                 <div
                     v-for="category in categories.data"
                     :key="category.id"
-                    class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 relative rounded-sm overflow-hidden group"
+                    class="my-1 px-1 w-1/2 md:w-1/3 lg:my-4 lg:px-4 lg:w-1/6 relative rounded-sm overflow-hidden group"
                 >
                     <img
                         src="assets/images/category/category-8.jpg"
                         alt="category 8"
-                        class="w-24"
+                        class="w-16"
                     />
                     <a
                         :href="'/home/products?filter=' + category.id"
@@ -103,9 +103,9 @@
 
         <!-- product -->
         <div class="container my-12 mx-auto px-4 md:px-12">
-         <h1 class="text-center text-2xl font-sans font-bold my-4">
-            Produk Terlaris
-        </h1>
+            <h1 class="text-center text-2xl font-sans font-bold my-4">
+                Produk Terlaris
+            </h1>
             <div class="flex flex-wrap -mx-1 lg:-mx-4">
                 <!-- Column -->
                 <div
