@@ -1,14 +1,18 @@
 <template>
     <BreezeIndex>
-        <h1 class="text-center text-2xl font-sans font-bold my-6">
-            Halaman About
-        </h1>
-        <ul class="ml-10" v-for="about in abouts.data" :key="about.id">
-            <li class="text-xl font-sans ml-8 font-bold">
-                {{ about.title }}
-            </li>
-            <li class="font-sans ml-8 mb-10">{{ about.content }}</li>
-        </ul>
+        <div
+            class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-2xl mb-80 mt-6"
+        >
+            <h1 class="text-center text-2xl font-sans font-bold my-6">
+                Halaman About
+            </h1>
+            <ul class="ml-10" v-for="about in abouts.data" :key="about.id">
+                <li class="text-xl font-sans ml-8 font-bold">
+                    {{ about.title }}
+                </li>
+                <li class="font-sans ml-8 mb-10">{{ about.content }}</li>
+            </ul>
+        </div>
     </BreezeIndex>
 </template>
 
