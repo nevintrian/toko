@@ -13,7 +13,7 @@
                         name="filter"
                         class="rounded-md border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10 mr-2"
                     >
-                        <option value="" disabled selected hidden>Pilih Kategori</option>
+                        <option value="">Semua Kategori</option>
                         <option
                             :value="category.id"
                             v-for="category in categories.data"
@@ -109,7 +109,7 @@
                                     :href="route('home.product', product.id)"
                                 >
                                     <button
-                                        class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                                        class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-lg leading-tight rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                                     >
                                         Lihat
                                     </button>
@@ -131,15 +131,25 @@
                 </div>
             </div>
         </div>
+        <div class="container my-12 mx-auto px-4 md:px-12">
+            <div class="flex flex-wrap items-center">
+                <div class="relative w-full max-w-full flex-grow flex-1">
+                    <pagination :links="products.links"/>
+                </div>
+            </div>
+        </div>
     </BreezeIndex>
 </template>
 <script>
 import BreezeIndex from "@/Layouts/Home/Index.vue";
 import { Link } from "@inertiajs/inertia-vue3";
+import Pagination from '@/Components/Pagination.vue';
+
 export default {
     components: {
         BreezeIndex,
         Link,
+        Pagination
     },
 
     props: {
@@ -156,18 +166,20 @@ export default {
 
     methods: {
         search() {
-            this.$inertia.get(
-                "/home/products",
-                { keywords: this.keywords },
+            this.$inertia.get(`${window.location.href}`,
+                {
+                    keywords: this.keywords,
+                },
                 { preserveState: true }
-            );
+            )
         },
         filter() {
-            this.$inertia.get(
-                "/home/products",
-                { filter: this.filters },
+            this.$inertia.get(`${window.location.href}`,
+                {
+                    filter: this.filters
+                },
                 { preserveState: true }
-            );
+            )
         },
     },
 };
