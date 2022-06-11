@@ -20,7 +20,7 @@
                                 homes?.data[0]?.contact.phone
                             "
                             class="px-8 py-3 text-base font-semibold text-slate-100 transition duration-300 ease-in-out rounded-full bg-blue-600 hover:opacity-80 hover:shadow-lg"
-                            >Hubungi Saya</a
+                            >Hubungi Kami</a
                         >
                     </div>
                     <div class="self-end w-full px-4 lg:w-1/2">
@@ -67,7 +67,7 @@
                                 homes?.data[1]?.contact.phone
                             "
                             class="px-8 py-3 text-base font-semibold text-slate-100 transition duration-300 ease-in-out rounded-full bg-indigo-600 hover:opacity-80 hover:shadow-lg"
-                            >Hubungi Saya</a
+                            >Hubungi Kami</a
                         >
                     </div>
                 </div>
@@ -152,9 +152,9 @@
                                 :href="route('home.product', product.id)"
                             >
                                 <button
-                                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-900 active:shadow-lg transition duration-150 ease-in-out"
+                                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-lg leading-tight rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-900 active:shadow-lg transition duration-150 ease-in-out"
                                 >
-                                    Beli
+                                    Lihat
                                 </button>
                             </Link>
                         </footer>

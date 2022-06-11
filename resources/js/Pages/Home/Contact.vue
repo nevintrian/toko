@@ -4,13 +4,13 @@
             Halaman Kontak
         </h1>
         <ul class="ml-14" v-for="contact in contacts.data" :key="contact.id">
-        <h1 class="text-xl font-sans ml-4 mb-2 font-bold">Hubungi kami di : </h1>
-            <li class="ml-4 text-xl font-sans mb-1">Nomor : 0{{ contact.phone }} ({{ contact.name }})</li>
-            <li class="ml-4 mb-4 text-xl font-sans mb-1">
+        <h1 class="text-lg font-sans ml-4 mb-2 font-bold">Hubungi kami di : </h1>
+            <li class="ml-4 text-lg font-sans mb-1">Nomor : 0{{ contact.phone }} ({{ contact.name }})</li>
+            <li class="ml-4 mb-4 text-lg font-sans mb-1">
             Alamat : {{ contact.address }}
             </li>
              <a :href="'https://wa.me/62' + contact.phone"
-           class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-900 active:shadow-lg transition duration-150 ease-in-out mb-10 ml-3">Hubungi Saya</a>
+           class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-lg leading-tight rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-900 active:shadow-lg transition duration-150 ease-in-out mb-10 ml-3">Chat Whatsapp</a>
         </ul>
 
     </BreezeIndex>
