@@ -9,7 +9,10 @@
             <li class="ml-4 mb-4 text-xl font-sans mb-1">
             Alamat : {{ contact.address }}
             </li>
+             <a :href="'https://wa.me/62' + contact.phone"
+           class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-900 active:shadow-lg transition duration-150 ease-in-out mb-10 ml-3">Hubungi Saya</a>
         </ul>
+
     </BreezeIndex>
     <!-- <img
                     src="https://img.icons8.com/small/32/undefined/contacts.png"

@@ -16,7 +16,7 @@
                         >
                             + {{ faq.question }}
                         </button>
-                        <div class="panel hidden px-6">
+                        <div class="panel hidden px-6 ml-4">
                             <p
                                 class="font-medium text-md text-slate-500 md:text-lg"
                             >

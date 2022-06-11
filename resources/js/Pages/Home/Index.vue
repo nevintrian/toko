@@ -92,7 +92,7 @@
                         class="w-24"
                     />
                     <a
-                        :href="'/home/products?' + category.id"
+                        :href="'/home/products?filter=' + category.id"
                         class="mx-2 absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition rounded-lg"
                         >{{ category.name }}</a
                     >

@@ -14,7 +14,7 @@ class HomeIndexController extends Controller
     {
         return Inertia::render('Home/Index', [
             'categories' => Category::paginate(6),
-            'products' => Product::paginate(6),
+            'products' => Product::orderBy('sold', 'DESC')->paginate(6),
             'homes' => Home::with('contact')->paginate()
         ]);
     }

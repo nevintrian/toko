@@ -8,15 +8,17 @@
                             <h6 class="text-xl font-bold text-blueGray-700 py-3">
                                 Data Home
                             </h6>
-                            <BreezeButtonLink :href="route('home.create')">Tambah</BreezeButtonLink>
-                            <div>
-                                <input
-                                    type="text"
-                                    name="keywords"
-                                    class="mr-1 mb-1 px-4 py-3 text-sm leading-4 text-gray-800 border rounded"
-                                    placeholder="Search"
-                                    v-model="keywords"
-                                    @keyup="search" >
+                            <div class="flex items-center justify-between">
+                                <BreezeButtonLink :href="route('home.create')">Tambah</BreezeButtonLink>
+                                <div>
+                                    <input
+                                        type="text"
+                                        name="keywords"
+                                        class="mr-1 px-4 py-3 text-sm leading-4 text-gray-800 border rounded"
+                                        placeholder="Search"
+                                        v-model="keywords"
+                                        @keyup="search" >
+                                </div>
                             </div>
                         </div>
                     </div>
