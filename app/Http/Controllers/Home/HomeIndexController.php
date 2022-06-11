@@ -13,7 +13,7 @@ class HomeIndexController extends Controller
     public function index()
     {
         return Inertia::render('Home/Index', [
-            'categories' => Category::paginate(6),
+            'categories' => Category::paginate(12),
             'products' => Product::orderBy('sold', 'DESC')->paginate(6),
             'homes' => Home::with('contact')->paginate()
         ]);

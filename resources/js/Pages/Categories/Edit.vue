@@ -41,6 +41,16 @@
                                     />
                                 </div>
                             </div>
+                        <div class="w-full lg:w-6/12 px-4">
+                            <div class="relative w-full mb-3">
+                                <BreezeLabel for="image" value="Gambar"/>
+                                <BreezeInput
+                                    id="image"
+                                    type="file"
+                                    @input="form.image = $event.target.files[0]"
+                                />
+                            </div>
+                        </div>
                         </div>
                             <div class="flex flex-wrap">
                             <div class="w-full lg:w-6/12 px-4">
@@ -84,15 +94,19 @@ export default {
     data() {
         return {
             form: useForm({
+                _method: 'put',
                 name: this.$page.props.category['name'],
+                image: this.$page.props.category['image']
             }),
         };
     },
 
+
     methods: {
         submit() {
-            this.form.put(this.route('category.update', this.$page.props.category['id']), {
-
+            this.form.post(this.route('category.update', this.$page.props.category['id']), {
+                _method: 'put',
+                preserveState: true
             })
         },
     },

@@ -55,7 +55,13 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        Category::create($request->all());
+        $input = $request->all();
+        $image = $request->file('image');
+        $destinationPath = public_path() . '/uploads/categories/';
+        $filename = date('YmdHis') . "." . $image->getClientOriginalExtension();
+        $image->move($destinationPath, $filename);
+        $input['image'] = "$filename";
+        Category::create($input);
         return Redirect::route('category.index')->with('success', 'Berhasil Tambah Kategori.');
     }
 
@@ -92,7 +98,18 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        Category::find($category->id)->update($request->all());
+        $input = $request->all();
+
+        if ($image = $request->file('image')) {
+            $destinationPath = public_path() . '/uploads/categories/';
+            $filename = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $filename);
+            $input['image'] = "$filename";
+        } else {
+            unset($input['image']);
+        }
+
+        Category::find($category->id)->update($input);
         return Redirect::route('category.index')->with('success', 'Berhasil Ubah Kategori.');
     }
 

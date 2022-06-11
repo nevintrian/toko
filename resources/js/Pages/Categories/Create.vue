@@ -41,6 +41,17 @@
                                     />
                                 </div>
                             </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <BreezeLabel for="image" value="Gambar"/>
+                                    <BreezeInput
+                                        id="image"
+                                        type="file"
+                                        required
+                                        @input="form.image = $event.target.files[0]"
+                                    />
+                            </div>
+                        </div>
                         </div>
 
                         <div class="flex flex-wrap">
@@ -85,7 +96,8 @@ export default {
     data() {
         return {
             form: useForm({
-                name : ''
+                name : '',
+                image : ''
             }),
         };
     },

@@ -87,9 +87,9 @@
                     class="my-1 px-1 w-1/2 md:w-1/3 lg:my-4 lg:px-4 lg:w-1/6 relative rounded-sm overflow-hidden group"
                 >
                     <img
-                        src="assets/images/category/category-8.jpg"
+                        :src="'/uploads/categories/' + category.image"
                         alt="category 8"
-                        class="w-16"
+                        class="w-20 h-20 p-3"
                     />
                     <a
                         :href="'/home/products?filter=' + category.id"
@@ -118,7 +118,7 @@
                         <Link :href="route('home.product', product.id)">
                             <img
                                 alt="Placeholder"
-                                class="block h-auto w-full"
+                                class="block h-40 w-full object-cover"
                                 :src="'/uploads/products/' + product.image"
                             />
                         </Link>

@@ -75,7 +75,7 @@
                             <Link :href="route('home.product', product.id)">
                                 <img
                                     alt="Placeholder"
-                                    class="block h-auto w-full"
+                                     class="block h-40 w-full object-cover"
                                     :src="'/uploads/products/' + product.image"
                                 />
                             </Link>
