@@ -3,13 +3,16 @@
         <BreezeHead></BreezeHead>
     </head>
     <body>
-        <BreezeHeader></BreezeHeader>
-        <slot />
+        <div>
+            <BreezeHeader></BreezeHeader>
+            <slot />
+            <footer>
+                <BreezeFooter></BreezeFooter>
+            </footer>
+        </div>
     </body>
 
-    <footer>
-        <BreezeFooter></BreezeFooter>
-    </footer>
+
 </template>
 
 <script>
