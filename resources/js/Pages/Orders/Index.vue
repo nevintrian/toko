@@ -1,4 +1,5 @@
 <template>
+    <Head title="Penjualan"/>
     <BreezeAuthenticatedLayout>
         <div class="w-full px-4">
             <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
@@ -8,18 +9,21 @@
                             <h6 class="text-xl font-bold text-blueGray-700 py-3">
                                 Data Penjualan
                             </h6>
-                            <div class="flex items-center justify-between">
+                            <div class="block w-full overflow-x-auto">
+                                <div class="flex items-center justify-between">
                                 <BreezeButtonLink :href="route('order.create')">Tambah</BreezeButtonLink>
                                 <div>
                                     <input
                                         type="text"
                                         name="keywords"
-                                        class="mr-1 px-4 py-3 text-sm leading-4 text-gray-800 border rounded"
+                                        class="ml-4 mr-1 px-4 py-3 text-sm leading-4 text-gray-800 border rounded"
                                         placeholder="Search"
                                         v-model="keywords"
                                         @keyup="search" >
                                 </div>
                             </div>
+                            </div>
+
                         </div>
                         <!-- <Link :href="route('order.index')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-4 rounded mr-3">Cetak Laporan</Link> -->
                     </div>
@@ -79,8 +83,8 @@
                                 Rp{{ order.total_price }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                <Link :href="route('order.show', order.id)" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Lihat</Link>
-                                <Link class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Cetak</Link>
+                                <Link :href="route('order.show', order.id)" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-3" as="button">Lihat</Link>
+                                <!-- <Link class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Cetak</Link> -->
                                 <Link onclick="return confirm('Apa anda yakin?')" :href="route('order.destroy', order.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3" method="delete" as="button">Hapus</Link>
                             </td>
                         </tr>
@@ -104,13 +108,15 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import Pagination from '@/Components/Pagination.vue'
 import BreezeButtonLink from '@/Components/ButtonLink.vue'
 import { Link } from '@inertiajs/inertia-vue3';
+import { Head, useForm } from '@inertiajs/inertia-vue3';
 
 export default {
     components: {
         BreezeAuthenticatedLayout,
         Pagination,
         BreezeButtonLink,
-        Link
+        Link,
+        Head
     },
 
     props: {

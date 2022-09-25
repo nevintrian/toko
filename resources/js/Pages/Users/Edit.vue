@@ -1,5 +1,5 @@
 <template>
-    <Head title="My profile"/>
+    <Head title="Ubah User"/>
 
     <BreezeAuthenticatedLayout>
         <div class="px-4 w-full">

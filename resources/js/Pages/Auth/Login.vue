@@ -1,5 +1,5 @@
 <template>
-    <Head title="Log in"/>
+    <Head title="Login"/>
 
 <BreezeIndex>
      <div class="contain py-16 font-poppins">

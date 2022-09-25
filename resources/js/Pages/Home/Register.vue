@@ -1,4 +1,5 @@
 <template>
+     <Head title="Daftar"/>
     <BreezeIndex>
             <div class="contain py-16">
             <div class="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
@@ -40,9 +41,11 @@
 </template>
 <script>
 import BreezeIndex from '@/Layouts/Home/Index.vue'
+import { Head, useForm } from '@inertiajs/inertia-vue3';
 export default {
     components: {
-        BreezeIndex
+        BreezeIndex,
+        Head
     },
 
     // data() {

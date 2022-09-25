@@ -1,4 +1,5 @@
 <template>
+    <Head title="About"/>
     <BreezeIndex>
         <h1 class="text-center text-2xl font-sans font-bold my-6">
             Halaman About
@@ -30,9 +31,11 @@
 
 <script>
 import BreezeIndex from "@/Layouts/Home/Index.vue";
+import { Head, useForm } from '@inertiajs/inertia-vue3';
 export default {
     components: {
         BreezeIndex,
+        Head
     },
 
     props: {

@@ -1,4 +1,5 @@
 <template>
+     <Head title="Produk"/>
     <BreezeIndex>
         <h1 class="text-center text-2xl font-sans font-bold my-6">
                 Semua Produk
@@ -144,12 +145,14 @@
 import BreezeIndex from "@/Layouts/Home/Index.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import Pagination from '@/Components/Pagination.vue';
+import { Head, useForm } from '@inertiajs/inertia-vue3';
 
 export default {
     components: {
         BreezeIndex,
         Link,
-        Pagination
+        Pagination,
+        Head
     },
 
     props: {

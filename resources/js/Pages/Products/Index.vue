@@ -1,4 +1,6 @@
 <template>
+    <Head title="Produk"/>
+
     <BreezeAuthenticatedLayout>
         <div class="w-full px-4">
             <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
@@ -8,15 +10,17 @@
                             <h6 class="text-xl font-bold text-blueGray-700 py-3">
                                 Data Produk
                             </h6>
-                            <div class="flex items-center justify-between">
+                            <div class="block w-full overflow-x-auto">
+                                <div class="flex items-center justify-between">
                                 <BreezeButtonLink :href="route('product.create')">Tambah</BreezeButtonLink>
                                 <input
                                     type="text"
                                     name="keywords"
-                                    class="mr-1 px-4 py-3 text-sm leading-4 text-gray-800 border rounded"
+                                    class="ml-4 mr-1 px-4 py-3 text-sm leading-4 text-gray-800 border rounded"
                                     placeholder="Search"
                                     v-model="keywords"
                                     @keyup="search" >
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -124,7 +128,8 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import Pagination from '@/Components/Pagination.vue'
 import BreezeButtonLink from'@/Components/ButtonLink.vue'
 import { Link } from '@inertiajs/inertia-vue3';
-import BreezeSearch from '@/Components/Search.vue'
+import BreezeSearch from '@/Components/Search.vue';
+import { Head, useForm } from '@inertiajs/inertia-vue3';
 
 export default {
     components: {
@@ -132,7 +137,8 @@ export default {
         Pagination,
         BreezeButtonLink,
         Link,
-        BreezeSearch
+        BreezeSearch,
+        Head
     },
 
     props: {

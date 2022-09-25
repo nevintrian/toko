@@ -1,5 +1,5 @@
 <template>
-    <Head title="My profile"/>
+    <Head title="Tambah Pembelian"/>
 
     <BreezeAuthenticatedLayout>
         <div class="px-4 w-full">
@@ -137,15 +137,17 @@
                             </table>
                         </div>
 
+
                         <div class="flex flex-wrap">
                             <div class="w-full lg:w-6/12 px-4">
-                                <Link :href="route('purchase.index')" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded">Kembali</Link>
+                                <Link :href="route('purchase.index')" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded mr-3">Kembali</Link>
                                 <BreezeButton
                                     :class="{ 'opacity-25': form.processing }"
                                     :disabled="form.processing">
                                     Simpan
                                 </BreezeButton>
                             </div>
+
                         </div>
                     </form>
                 </div>

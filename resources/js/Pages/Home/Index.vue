@@ -1,4 +1,5 @@
 <template>
+    <Head title="Home"/>
     <BreezeIndex>
         <section id="home" class="pt-16 pb-32">
             <div class="container">
@@ -171,10 +172,12 @@
 <script>
 import BreezeIndex from "@/Layouts/Home/Index.vue";
 import { Link } from "@inertiajs/inertia-vue3";
+import { Head, useForm } from '@inertiajs/inertia-vue3';
 export default {
     components: {
         BreezeIndex,
         Link,
+        Head
     },
 
     props: {

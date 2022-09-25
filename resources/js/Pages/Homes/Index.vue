@@ -1,4 +1,5 @@
 <template>
+    <Head title="Home"/>
     <BreezeAuthenticatedLayout>
         <div class="w-full px-4">
             <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
@@ -101,13 +102,15 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import Pagination from '@/Components/Pagination.vue'
 import BreezeButtonLink from '@/Components/ButtonLink.vue'
 import { Link } from '@inertiajs/inertia-vue3';
+import { Head, useForm } from '@inertiajs/inertia-vue3';
 
 export default {
     components: {
         BreezeAuthenticatedLayout,
         Pagination,
         BreezeButtonLink,
-        Link
+        Link,
+        Head
 
     },
 
