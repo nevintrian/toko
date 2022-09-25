@@ -60,7 +60,7 @@
                         >About</Link
                     >
                 </li>
-                <!-- <li>
+                <li>
                     <Link
                         :href="route('login')"
                         class="md:p-4 py-2 block hover:text-blue-700 text-blue-900 font-semibold"
@@ -69,7 +69,7 @@
                             this.$page?.props?.auth?.user?.name ?? "LOGIN"
                         }}</Link
                     >
-                </li> -->
+                </li>
             </ul>
         </div>
     </nav>

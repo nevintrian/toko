@@ -17,33 +17,33 @@
 
                 <div class="flex flex-wrap">
                     <div class="w-full lg:w-4/12 px-4 my-4">
-                        <Link :href="route('user.index')" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-blueGray-700 dark:text-white">Data User</h5>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">Jumlah : {{ user_count }}</p>
+                        <Link :href="route('user.index')" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-blueGray-700">Data User</h5>
+                            <p class="font-normal text-gray-700">Jumlah : {{ user_count }}</p>
                         </Link>
                     </div>
                     <div class="w-full lg:w-4/12 px-4 my-4">
-                        <Link :href="route('category.index')" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-blueGray-700 dark:text-white">Data Kategori</h5>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">Jumlah : {{ category_count }}</p>
+                        <Link :href="route('category.index')" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-blueGray-700">Data Kategori</h5>
+                            <p class="font-normal text-gray-700">Jumlah : {{ category_count }}</p>
                         </Link>
                     </div>
                     <div class="w-full lg:w-4/12 px-4 my-4">
-                        <Link :href="route('product.index')" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-blueGray-700 dark:text-white">Data Produk</h5>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">Jumlah : {{ product_count }}</p>
+                        <Link :href="route('product.index')" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-blueGray-700">Data Produk</h5>
+                            <p class="font-normal text-gray-700">Jumlah : {{ product_count }}</p>
                         </Link>
                     </div>
                     <div class="w-full lg:w-4/12 px-4 my-4">
-                        <Link :href="route('purchase.index')" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-blueGray-700 dark:text-white">Data Pembelian</h5>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">Jumlah : {{ order_count }}</p>
+                        <Link :href="route('purchase.index')" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-blueGray-700">Data Pembelian</h5>
+                            <p class="font-normal text-gray-700">Jumlah : {{ order_count }}</p>
                         </Link>
                     </div>
                     <div class="w-full lg:w-4/12 px-4 my-4">
-                        <Link :href="route('order.index')" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-blueGray-700 dark:text-white">Data Penjualan</h5>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">Jumlah : {{ purchase_count }}</p>
+                        <Link :href="route('order.index')" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-blueGray-700">Data Penjualan</h5>
+                            <p class="font-normal text-gray-700">Jumlah : {{ purchase_count }}</p>
                         </Link>
                     </div>
 

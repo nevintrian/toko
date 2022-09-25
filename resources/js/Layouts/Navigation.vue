@@ -75,7 +75,7 @@
                     <li class="items-center">
                         <nav-link :href="route('category.index')" :active="route().current('category.index') || route().current('category.create') || route().current('category.edit')">
                             <template #icon>
-                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                                <i class="mr-2 text-sm opacity-75 fas fa-box-open"></i>
                             </template>
                             Kategori
                         </nav-link>
@@ -83,7 +83,7 @@
                     <li class="items-center">
                         <nav-link :href="route('product.index')" :active="route().current('product.index') || route().current('product.create') || route().current('product.edit')">
                             <template #icon>
-                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                                <i class="mr-2 text-sm opacity-75 fas fa-box-open"></i>
                             </template>
                             Produk
                         </nav-link>
@@ -94,17 +94,17 @@
                 </nav-heading>
                 <ul class="flex flex-col list-none md:flex-col md:min-w-full">
                     <li class="items-center">
-                        <nav-link :href="route('purchase.index')" :active="route().current('purchase.index') || route().current('purchase.create') || route().current('purchase.edit')">
+                        <nav-link :href="route('purchase.index')" :active="route().current('purchase.index') || route().current('purchase.create') || route().current('purchase.edit') || route().current('purchase.show')">
                             <template #icon>
-                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                                <i class="mr-2 text-sm opacity-75 fas fa-credit-card"></i>
                             </template>
                             Pembelian
                         </nav-link>
                     </li>
                     <li class="items-center">
-                        <nav-link :href="route('order.index')" :active="route().current('order.index') || route().current('order.create') || route().current('order.edit')">
+                        <nav-link :href="route('order.index')" :active="route().current('order.index') || route().current('order.create') || route().current('order.edit') || route().current('order.show')">
                             <template #icon>
-                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                                <i class="mr-2 text-sm opacity-75 fas fa-credit-card"></i>
                             </template>
                             Penjualan
                         </nav-link>
@@ -117,7 +117,7 @@
                     <li class="items-center">
                         <nav-link :href="route('home.index')" :active="route().current('home.index') || route().current('home.create') || route().current('home.edit')">
                             <template #icon>
-                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                                <i class="mr-2 text-sm opacity-75 fas fa-house-user"></i>
                             </template>
                             Home
                         </nav-link>
@@ -127,7 +127,7 @@
                     <li class="items-center">
                         <nav-link :href="route('faq.index')" :active="route().current('faq.index') || route().current('faq.create') || route().current('faq.edit')">
                             <template #icon>
-                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                                <i class="mr-2 text-sm opacity-75 fas fa-house-user"></i>
                             </template>
                             FAQ
                         </nav-link>
@@ -137,7 +137,7 @@
                     <li class="items-center">
                         <nav-link :href="route('about.index')" :active="route().current('about.index') || route().current('about.create') || route().current('about.edit')">
                             <template #icon>
-                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                                <i class="mr-2 text-sm opacity-75 fas fa-house-user"></i>
                             </template>
                             About
                         </nav-link>
@@ -147,7 +147,7 @@
                     <li class="items-center">
                         <nav-link :href="route('contact.index')" :active="route().current('contact.index') || route().current('contact.create') || route().current('contact.edit')">
                             <template #icon>
-                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                                <i class="mr-2 text-sm opacity-75 fas fa-house-user"></i>
                             </template>
                             Kontak
                         </nav-link>
@@ -160,7 +160,7 @@
                     <li class="items-center">
                         <nav-link :href="route('profile.update')" :active="route().current('profile.show')">
                             <template #icon>
-                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                                <i class="mr-2 text-sm opacity-75 fas fa-user"></i>
                             </template>
                             Profil
                         </nav-link>
@@ -168,7 +168,7 @@
                     <li class="items-center">
                         <nav-link  onclick="return confirm('Apa anda yakin?')" :href="route('logout')"  :active="route().current('logout')" method="post" as="button">
                             <template #icon>
-                                <i class="mr-2 text-sm opacity-75 far fa-address-card"></i>
+                                <i class="mr-2 text-sm opacity-75 fas fa-arrow-left"></i>
                             </template>
                             Logout
                         </nav-link>

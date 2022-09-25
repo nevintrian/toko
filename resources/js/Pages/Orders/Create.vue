@@ -56,20 +56,86 @@
                                     />
                                 </div>
                             </div>
-                            <div class="w-full lg:w-6/12 px-4">
-                                <div class="relative w-full mb-3">
-                                    <BreezeLabel for="total_price" value="Total Harga"/>
-                                    <BreezeInput
-                                        placeholder="Masukkan total harga"
-                                        id="total_price"
-                                        type="number"
-                                        v-model="form.total_price"
-                                        required
-                                    />
-                                </div>
-                            </div>
                         </div>
 
+                        <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-3 rounded m-3" @click="increment()">Tambah Barang</button>
+
+                        <h1 class="m-3">Total Harga : Rp{{ this.form.total_price ?? 0 }}</h1>
+                        <table class="items-center w-full bg-transparent border-collapse mt-5">
+                            <thead>
+                            <tr>
+                                <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
+                                    No
+                                </th>
+                                <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
+                                    Kode Barang
+                                </th>
+                                <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
+                                    Nama Barang
+                                </th>
+                                <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
+                                    Stok
+                                </th>
+                                <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
+                                    Qty
+                                </th>
+                                <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
+                                    Harga
+                                </th>
+                                <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
+                                    Sub Total
+                                </th>
+                                <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
+                                    Action
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="(item, index) in form.cart_row" :key="index">
+                                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                {{ item }}
+                                </td>
+                                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    <select id="product_id" v-model="form.product_id[index]" required @change="product(index)" class="w-full border-gray-300 rounded-md shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <option value="" disabled selected hidden>Pilih Product</option>
+                                        <option v-for="product in products.data" :key="product.id" :value="product.id">
+                                        <!-- <div v-if="item == 1"> -->
+                                            {{product.code}}
+                                        <!-- </div>
+                                        <div v-else-if="!form.product_id.includes(product.id)">
+                                            {{product.code}}
+                                        </div> -->
+                                        </option>
+                                    </select>
+                                </td>
+                                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    {{ form.product_name[index] || "" }}
+                                </td>
+                                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    {{ form.stock[index] || "" }}
+                                </td>
+                                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    <BreezeInput
+                                        id="quantity"
+                                        type="number"
+                                        v-model="form.quantity[index]"
+                                        v-on:input="quantity(index)"
+                                        :max = "form.stock[index]"
+                                        required
+                                    />
+                                </td>
+                                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    Rp{{ form.price[index] || 0 }}
+                                </td>
+                                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    Rp{{ form.subtotal[index] || 0}}
+                                </td>
+                                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded m-3" @click="decrement(index)">Hapus</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                         <div class="flex flex-wrap">
                             <div class="w-full lg:w-6/12 px-4">
                                 <Link :href="route('order.index')" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded mr-3">Kembali</Link>
@@ -113,11 +179,22 @@ export default {
     data() {
         return {
             form: useForm({
+                cart_row : 1,
                 code : '',
                 customer_name : '',
-                total_price : '',
+                total_price : 0,
+                product_id : [],
+                product_name : [],
+                stock : [],
+                quantity : [],
+                price : [],
+                subtotal : []
             }),
         };
+    },
+
+    props: {
+        products: Object,
     },
 
     methods: {
@@ -126,6 +203,40 @@ export default {
 
             })
         },
+
+        increment(){
+            this.form.cart_row++
+        },
+
+        decrement(index){
+            this.form.cart_row--
+            this.form.product_id.splice(index, 1)
+            this.form.quantity.splice(index, 1)
+            this.form.price.splice(index, 1)
+            this.form.subtotal.splice(index, 1)
+        },
+
+        product(index){
+            let id = this.form.product_id[index]
+            this.products.data.forEach(e => {
+                if(e.id == id){
+                    this.form.product_name[index] = e.name
+                    this.form.price[index] = e.price
+                    this.form.stock[index] = e.stock
+                }
+            });
+
+
+        },
+
+        quantity(index){
+            this.form.subtotal[index] = this.form.price[index] * this.form.quantity[index] || 0
+            this.form.total_price = 0
+            this.form.subtotal.forEach(e => {
+                    this.form.total_price += e
+            });
+
+        }
     },
 };
 </script>

@@ -20,16 +20,16 @@
                         </h1>
 
                         <table
-                            class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+                            class="w-full text-sm text-left text-gray-500"
                         >
                             <thead
-                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+                                class="text-xs text-gray-700 uppercase bg-gray-50"
                             ></thead>
                             <tbody>
-                                <tr class="bg-white dark:bg-gray-800">
+                                <tr class="bg-white">
                                     <th
                                         scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                                     >
                                         Brand
                                     </th>
@@ -37,10 +37,10 @@
                                         {{ product.data[0].brand }}
                                     </td>
                                 </tr>
-                                <tr class="bg-white dark:bg-gray-800">
+                                <tr class="bg-white">
                                     <th
                                         scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                                     >
                                         Stok
                                     </th>
@@ -48,10 +48,10 @@
                                         {{ product.data[0].stock }}
                                     </td>
                                 </tr>
-                                <tr class="bg-white dark:bg-gray-800">
+                                <tr class="bg-white">
                                     <th
                                         scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                                     >
                                         Terjual
                                     </th>
@@ -59,10 +59,10 @@
                                         {{ product.data[0].sold }}
                                     </td>
                                 </tr>
-                                <tr class="bg-white dark:bg-gray-800">
+                                <tr class="bg-white">
                                     <th
                                         scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                                     >
                                         Kategori
                                     </th>
@@ -70,10 +70,10 @@
                                         {{ product.data[0]?.category?.name }}
                                     </td>
                                 </tr>
-                                <tr class="bg-white dark:bg-gray-800">
+                                <tr class="bg-white">
                                     <th
                                         scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                                     >
                                         Deskripsi
                                     </th>
@@ -81,10 +81,10 @@
                                         {{ product.data[0].description }}
                                     </td>
                                 </tr>
-                                <tr class="bg-white dark:bg-gray-800">
+                                <tr class="bg-white">
                                     <th
                                         scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                                     >
                                         Harga
                                     </th>

@@ -65,7 +65,7 @@
                                 {{ contact.name }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                {{ contact.phone }}
+                                0{{ contact.phone }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                 {{ contact.address }}

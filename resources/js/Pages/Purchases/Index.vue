@@ -70,17 +70,17 @@
                                 {{ purchase.code }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                {{ purchase.created_at }}
+                                {{ purchase.date }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                 {{ purchase.supplier_name }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                {{ purchase.total_price }}
+                                Rp{{ purchase.total_price }}
                             </td>
                             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                <Link class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Lihat</Link>
-                                <Link :href="route('purchase.edit', purchase.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Ubah</Link>
+                                <Link :href="route('purchase.show', purchase.id)" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Lihat</Link>
+                                <Link class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3" as="button">Cetak</Link>
                                 <Link onclick="return confirm('Apa anda yakin?')" :href="route('purchase.destroy', purchase.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-3" method="delete" as="button">Hapus</Link>
                             </td>
                         </tr>
