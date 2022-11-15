@@ -121,6 +121,7 @@
                                         v-model="form.quantity[index]"
                                         v-on:input="quantity(index)"
                                         :max = "form.stock[index]"
+                                        min="1"
                                         required
                                     />
                                 </td>

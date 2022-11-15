@@ -17,6 +17,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\UserController;
+use App\Models\Purchase;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -171,4 +172,7 @@ Route::middleware('auth')->group(function () {
             'destroy' => 'purchase.destroy'
         ]
     ]);
+
+    Route::get('orders/print_pdf', [OrderController::class, 'print_pdf'])->name('order.print');
+    Route::get('purchases/print_pdf', [PurchaseController::class, 'print_pdf'])->name('purchase.print');
 });

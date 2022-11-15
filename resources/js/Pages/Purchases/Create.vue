@@ -120,6 +120,7 @@
                                             type="number"
                                             v-model="form.quantity[index]"
                                             v-on:input="quantity(index)"
+                                            min="1"
                                             required
                                         />
                                     </td>

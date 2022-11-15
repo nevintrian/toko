@@ -100,7 +100,13 @@
                 </div>
             </div>
         </div>
+        <div class="flex flex-wrap">
+            <div class="w-full lg:w-6/12 px-4">
+                <Link :href="route('order.print')" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded mr-3">Cetak Laporan</Link>
+            </div>
+        </div>
     </BreezeAuthenticatedLayout>
+
 </template>
 
 <script>

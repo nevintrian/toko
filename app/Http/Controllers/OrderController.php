@@ -13,6 +13,9 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Codedge\Fpdf\Fpdf\Fpdf;
+use Illuminate\Support\Facades\App;
 
 class OrderController extends Controller
 {
@@ -143,5 +146,38 @@ class OrderController extends Controller
         }
         Order::destroy($order->id);
         return Redirect::route('order.index')->with('success', 'Berhasil Hapus Penjualan.');
+    }
+
+
+    public function print_pdf()
+    {
+        // $order = Order::all();
+
+        // $pdf = PDF::loadView('order_pdf',  ['orders' => $order])->setPaper('a4', 'landscape')->setWarnings(false);
+
+        // return response()->streamDownload(function () use ($pdf) {
+        //     echo $pdf->output();
+        // }, 'invoice.pdf');
+
+
+        // exit();
+
+        // $data = [
+        //     'title' => 'Welcome to Tutsmake.com',
+        //     'date' => date('m/d/Y')
+        // ];
+
+        // $pdf = PDF::loadView('order_pdf', $data);
+
+        // return $pdf->download('tutsmake.pdf');
+
+        $pdf = new Fpdf();
+        header('Content-type: application/pdf');
+        $pdf->SetFont('Arial', 'B', 15);
+        $pdf->AddPage("L", ['100', '100']);
+        $pdf->Text(10, 10, "Hello World!");
+        $pdf->Output();
+
+        exit;
     }
 }

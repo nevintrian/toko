@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePurchaseRequest;
 use App\Models\Product;
 use App\Models\Purchase;
 use App\Models\PurchaseDetail;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -142,5 +143,13 @@ class PurchaseController extends Controller
         }
         Purchase::destroy($purchase->id);
         return Redirect::route('purchase.index')->with('success', 'Berhasil Hapus Pembelian.');
+    }
+
+    public function print_pdf()
+    {
+        $purchase = Purchase::all();
+        $pdf = PDF::loadview('purchase_pdf', ['purchases' => $purchase]);
+        return $pdf->download('laporan-pembelian-pdf');
+        exit();
     }
 }
